@@ -136,13 +136,15 @@ a.active {
   transition: opacity .3s, transform .3s;
   z-index: 2;
 }
-.album-insert {
+.album-insert,
+.album-record {
   position: relative;
   perspective: 1000px;
   width: 300px;
   height: 300px;
 }
-.album-insert img {
+.album-insert img,
+.album-record img {
   width: 100%;
 }
 .album-insert .front,
@@ -222,13 +224,25 @@ a.active {
   transition: none;
   z-index: -1;
 }
-
-.album-record {
-  border-radius: 50%;
-  overflow: hidden;
+.album-record .front,
+.album-record .back {
+  z-index: 1;
+  transition: transform .3s, z-index 0s .1s;
 }
-.album-record {
-
+.album-record .back {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  transform: rotateY(-180deg);
+}
+.album-record .back.active {
+  transform: none;
+  z-index: 1;
+}
+.album-record .front.active {
+  transform: rotateY(180deg);
+  transition: transform .3s, z-index 0s .1s;
+  z-index: -1;
 }
 .album-backdrop {
   position: absolute;

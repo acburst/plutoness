@@ -106,22 +106,26 @@
 
       } else {
         this.classList.add('active');
-        findCenter(this);
+        this.style.transform = findCenter(this);
       }
       albumTape.style.opacity = 0;
       albumRecord.style.opacity = 0;
       albumBackdrop.classList.add('active');
     });
 
+    function resetRecord() {
+      albumRecord.classList.remove('stage-1');
+      albumRecord.querySelector('.front').classList.remove('active');
+      albumRecord.querySelector('.back').classList.remove('active');
+    }
     albumRecord.addEventListener("click", function() {
-      if (this.classList.contains('flip')) {
-        this.classList.remove('flip');
-        this.style.transform = albumRecordCenter;
+      if (this.classList.contains('stage-1')) {
+        resetRecord();
 
       } else if (this.classList.contains('active')) {
-        // this.classList.remove('active');
-        this.classList.add('flip');
-        this.style.transform = albumRecordCenter + ' rotateY(180deg)';
+        this.classList.add('stage-1');
+        this.querySelector('.front').classList.add('active');
+        this.querySelector('.back').classList.add('active');
 
       } else {
         this.classList.add('active');
@@ -144,6 +148,7 @@
       albumRecord.classList.remove('active');
       albumRecord.classList.remove('flip');
       albumBackdrop.classList.remove('active');
+      resetRecord();
       resetInsert();
     });
   }
