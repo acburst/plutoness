@@ -136,6 +136,93 @@ a.active {
   transition: opacity .3s, transform .3s;
   z-index: 2;
 }
+.album-insert {
+  position: relative;
+  perspective: 1000px;
+  width: 300px;
+  height: 300px;
+}
+.album-insert img {
+  width: 100%;
+}
+.album-insert .front,
+.album-insert .back,
+.album-insert .inside-top,
+.album-insert .inside-bottom {
+  position: absolute;
+  top: 0;
+  transition: transform .3s;
+}
+.album-insert .inside-top,
+.album-insert .inside-bottom {
+  top: 100%;
+  opacity: 0;
+}
+.album-insert .front {
+  transition: none;
+  transform-origin: bottom;
+  z-index: 1;
+}
+.album-insert .front.inactive {
+  opacity: 0;
+  transform: rotateX(180deg);
+  transition: transform .3s, opacity 0s .3s;
+  z-index: -1;
+}
+.album-insert.stage-4 .front.inactive {
+  transform: rotateX(360deg);
+  transition: transform .3s, z-index 0s .1s;
+  z-index: 1;
+  opacity: 1;
+}
+.album-insert .back {
+  z-index: -1;
+  transform-origin: bottom;
+  transition: none;
+}
+.album-insert .back.active {
+  z-index: 1;
+  transform: rotateX(180deg);
+  transition: transform .3s, z-index 0s .3s;
+}
+.album-insert.stage-3 .back.active {
+  transform: rotateX(360deg);
+}
+.album-insert.stage-4 .back.active {
+  opacity: 0;
+}
+.album-insert .back img {
+  transform: rotateX(180deg);
+}
+.album-insert .inside-top {
+  transform-origin: top;
+  z-index: -1;
+}
+.album-insert.stage-3 .inside-top.active,
+.album-insert.stage-4 .inside-top.active {
+  transform: rotateX(180deg);
+  transition: transform .3s, z-index 0s .1s;
+  opacity: 1;
+}
+.album-insert.stage-3 .inside-top.active {
+  z-index: 1;
+}
+.album-insert.stage-4 .inside-top.active {
+  transition: none;
+  z-index: -1;
+}
+.album-insert .inside-bottom {
+  transform-origin: top;
+  transform: rotateX(180deg);
+  transition: transform .3s, opacity 0s .3s;
+}
+.album-insert.stage-3 .inside-bottom {
+  opacity: 1;
+  transform: none;
+  transition: none;
+  z-index: -1;
+}
+
 .album-record {
   border-radius: 50%;
   overflow: hidden;

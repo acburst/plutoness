@@ -52,7 +52,6 @@
       console.log(albumWrapperRect, elRect, left);
     }
     albumTape.addEventListener("click", function() {
-      let opacity = 0;
       if (this.classList.contains('flip')) {
         this.classList.remove('flip');
         this.style.transform = albumTapeCenter;
@@ -61,35 +60,60 @@
         // this.classList.remove('active');
         this.classList.add('flip');
         this.style.transform = albumTapeCenter + ' rotateY(180deg)';
-        // opacity = 1;
 
       } else {
         this.classList.add('active');
         albumTapeCenter = findCenter(this);
         this.style.transform = albumTapeCenter;
       }
-      albumInsert.style.opacity = opacity;
-      albumRecord.style.opacity = opacity;
+      albumInsert.style.opacity = 0;
+      albumRecord.style.opacity = 0;
       albumBackdrop.classList.add('active');
     });
 
+
+    function resetInsert() {
+      albumInsert.classList.remove('stage-1');
+      albumInsert.classList.remove('stage-2');
+      albumInsert.classList.remove('stage-3');
+      albumInsert.classList.remove('stage-4');
+      albumInsert.querySelector('.front').classList.remove('inactive');
+      albumInsert.querySelector('.back').classList.remove('active');
+      albumInsert.querySelector('.inside-top').classList.remove('active');
+    }
     albumInsert.addEventListener("click", function() {
-      let opacity = 0;
-      if (this.classList.contains('active')) {
-        this.classList.remove('active');
-        this.style.transform = '';
-        opacity = 1;
+      if (this.classList.contains('stage-3')) {
+        setTimeout(() => {
+          resetInsert();
+        }, 300);
+        this.classList.remove('stage-3');
+        this.classList.add('stage-4');
+        // this.querySelector('.front').classList.remove('inactive');
+
+      } else if (this.classList.contains('stage-2')) {
+        this.classList.remove('stage-2');
+        this.classList.add('stage-3');
+        this.querySelector('.inside-top').classList.add('active');
+
+      } else if (this.classList.contains('stage-1')) {
+        this.classList.remove('stage-1');
+        this.classList.add('stage-2');
+        this.querySelector('.front').classList.add('inactive');
+
+      } else if (this.classList.contains('active')) {
+        this.classList.add('stage-1');
+        this.querySelector('.back').classList.add('active');
+
       } else {
         this.classList.add('active');
         findCenter(this);
       }
-      albumTape.style.opacity = opacity;
-      albumRecord.style.opacity = opacity;
+      albumTape.style.opacity = 0;
+      albumRecord.style.opacity = 0;
       albumBackdrop.classList.add('active');
     });
 
     albumRecord.addEventListener("click", function() {
-      let opacity = 0;
       if (this.classList.contains('flip')) {
         this.classList.remove('flip');
         this.style.transform = albumRecordCenter;
@@ -98,15 +122,14 @@
         // this.classList.remove('active');
         this.classList.add('flip');
         this.style.transform = albumRecordCenter + ' rotateY(180deg)';
-        // opacity = 1;
 
       } else {
         this.classList.add('active');
         albumRecordCenter = findCenter(this);
         this.style.transform = albumRecordCenter;
       }
-      albumTape.style.opacity = opacity;
-      albumInsert.style.opacity = opacity;
+      albumTape.style.opacity = 0;
+      albumInsert.style.opacity = 0;
       albumBackdrop.classList.add('active');
     });
 
@@ -121,6 +144,7 @@
       albumRecord.classList.remove('active');
       albumRecord.classList.remove('flip');
       albumBackdrop.classList.remove('active');
+      resetInsert();
     });
   }
 
