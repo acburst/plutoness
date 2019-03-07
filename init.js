@@ -6,13 +6,11 @@
     let carouselActive;
     let activeIndex;
     Array.prototype.forEach.call(carouselItems, function(el, i) {
-      console.log(el.classList.contains('active'), i);
       if (el.classList.contains('active')) {
         carouselActive = el;
         activeIndex = i;
       }
     });
-    console.log(carouselItems, activeIndex);
 
     document.getElementById('prev-btn').addEventListener("click", function() {
       carouselItems[activeIndex].classList.remove('active');
@@ -42,21 +40,32 @@
     let albumRecord = document.querySelector('.album-record');
     let albumBackdrop = document.querySelector('.album-backdrop');
 
-    function findCenter(el, scale) {
+    function findCenter(el) {
       let albumWrapperRect = albumWrapper.getBoundingClientRect();
       let elRect = el.getBoundingClientRect();
       let left = (albumWrapperRect.left - elRect.left) + albumWrapperRect.width / 2 - elRect.width / 2;
       let top = (albumWrapperRect.top - elRect.top) + albumWrapperRect.height / 2 - elRect.height / 2;
-      if (!scale) {
-        scale = window.innerHeight / elRect.height;
-      }
+      let scale = window.innerHeight / elRect.height;
 
       return 'translate(' + left + 'px,' + top + 'px) scale('+ scale +')';
-      console.log(albumWrapperRect, elRect, left);
+    }
+    function resetTape() {
+      albumTape.classList.remove('stage-1');
+      albumTape.classList.remove('stage-2');
+      albumTape.classList.remove('stage-3');
+      albumTape.classList.remove('active');
     }
     albumTape.addEventListener("click", function() {
-      if (this.classList.contains('stage-1')) {
+      if (this.classList.contains('stage-3')) {
+        this.classList.remove('stage-3');
+
+      } else if (this.classList.contains('stage-2')) {
+        this.classList.remove('stage-2');
+        this.classList.add('stage-3');
+
+      } else if (this.classList.contains('stage-1')) {
         this.classList.remove('stage-1');
+        this.classList.add('stage-2');
 
       } else if (this.classList.contains('active')) {
         this.classList.add('stage-1');
@@ -114,22 +123,28 @@
 
     function resetRecord() {
       albumRecord.classList.remove('stage-1');
-      albumRecord.querySelector('.front').classList.remove('active');
-      albumRecord.querySelector('.back').classList.remove('active');
+      albumRecord.classList.remove('stage-2');
+      albumRecord.classList.remove('stage-3');
+      albumRecord.classList.remove('active');
     }
     albumRecord.addEventListener("click", function() {
-      if (this.classList.contains('stage-1')) {
-        resetRecord();
+      if (this.classList.contains('stage-3')) {
+        this.classList.remove('stage-3');
+
+      } else if (this.classList.contains('stage-2')) {
+        this.classList.remove('stage-2');
+        this.classList.add('stage-3');
+
+      } else if (this.classList.contains('stage-1')) {
+        this.classList.remove('stage-1');
+        this.classList.add('stage-2');
 
       } else if (this.classList.contains('active')) {
         this.classList.add('stage-1');
-        this.querySelector('.front').classList.add('active');
-        this.querySelector('.back').classList.add('active');
 
       } else {
         this.classList.add('active');
-        albumRecordCenter = findCenter(this);
-        this.style.transform = albumRecordCenter;
+        this.style.transform = findCenter(this);
       }
       albumTape.style.opacity = 0;
       albumInsert.style.opacity = 0;
@@ -147,6 +162,7 @@
       albumRecord.classList.remove('active');
       albumRecord.classList.remove('flip');
       albumBackdrop.classList.remove('active');
+      resetTape();
       resetRecord();
       resetInsert();
     });

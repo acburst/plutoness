@@ -185,7 +185,35 @@ a.active {
 .album-tape .inside-back {
   position: absolute;
   top: 0;
-  transition: transform .3s;
+  transition: transform .3s, opacity .3s;
+}
+.album-tape .back,
+.album-tape .inside-front,
+.album-tape .inside-back {
+  opacity: 0;
+}
+.album-tape .inside-front {
+  transform: translateX(-10%);
+}
+.album-tape .inside-back,
+.album-tape.stage-2 .inside-front {
+  transform: rotateY(-180deg);
+}
+.album-tape .back,
+.album-tape.stage-3 .inside-back {
+  transform: translateX(-30%);
+}
+.album-tape.stage-1 .front,
+.album-tape.stage-2 .front,
+.album-tape.stage-3 .front {
+  transform: translateX(-30%);
+  opacity: 0
+}
+.album-tape.stage-1 .inside-front,
+.album-tape.stage-2 .inside-back,
+.album-tape.stage-3 .back {
+  transform: none;
+  opacity: 1;
 }
 
 .album-insert .front,
@@ -194,10 +222,28 @@ a.active {
 .album-insert .inside-bottom {
   position: absolute;
   top: 0;
-  transition: transform .3s;
+  transition: transform .3s, opacity .3s;
+}
+.album-insert .back,
+.album-insert .inside-top,
+.album-insert .inside-bottom {
+  opacity: 0;
 }
 .album-insert {
   height: 300px;
+}
+.album-insert .wrapper {
+  transform: translateY(-8%);
+  width: inherit;
+  height: inherit;
+  transition: transform .3s;
+}
+.album-insert.stage-1 .wrapper,
+.album-insert.stage-3 .wrapper {
+  transform: scale(.5) translateY(-50%);
+}
+.album-insert.stage-2 .wrapper {
+  transform: translateY(-93%);
 }
 .album-insert .front {
   transition: none;
@@ -223,11 +269,17 @@ a.active {
 }
 .album-insert .back.active {
   z-index: 1;
+  opacity: 1;
   transform: rotateX(180deg);
-  transition: transform .3s, z-index 0s .3s;
+  transition: transform .3s, opacity .3s, z-index 0s .3s;
+}
+.album-insert.stage-2 .back.active, {
+  transform: rotateX(180deg);
 }
 .album-insert.stage-3 .back.active {
-  transform: rotateX(360deg);
+  opacity: 0;
+  transform: none;
+  transition: transform .3s, opacity 0s .3s, z-index 0s .3s;
 }
 .album-insert.stage-4 .back.active {
   opacity: 0;
@@ -240,11 +292,12 @@ a.active {
   transform-origin: bottom;
   transform: rotateX(-180deg);
   z-index: -1;
+  transition: none;
 }
 .album-insert.stage-3 .inside-top.active,
 .album-insert.stage-4 .inside-top.active {
   transform: none;
-  transition: transform .3s, z-index 0s .1s;
+  transition: transform .3s, opacity .3s, z-index 0s .1s;
   opacity: 1;
 }
 .album-insert.stage-3 .inside-top.active {
@@ -255,40 +308,53 @@ a.active {
   z-index: -1;
 }
 .album-insert .inside-bottom {
-  top: 50%;
   opacity: 0;
-  transform-origin: top;
-  transform: rotateX(180deg);
-  transition: transform .3s, opacity 0s .3s;
+  transform: translateY(100%);
+  transition: transform .3s;
+  z-index: -1;
 }
 .album-insert.stage-3 .inside-bottom {
   opacity: 1;
-  transform: none;
-  transition: none;
-  z-index: -1;
 }
-.album-record {
-
+.album-insert.stage-4 .inside-bottom {
+  transform: translateY(100%) rotateX(180deg);
+  transform-origin: top;
 }
 .album-record .front,
-.album-record .back {
-  z-index: 1;
-  transition: transform .3s, z-index 0s .1s;
-}
-.album-record .back {
+.album-record .back,
+.album-record .inside-front,
+.album-record .inside-back {
   position: absolute;
   top: 0;
-  z-index: -1;
+  transition: transform .3s, opacity .3s;
+}
+.album-record .back,
+.album-record .inside-front,
+.album-record .inside-back {
+  opacity: 0;
+}
+.album-record .inside-front {
+  transform: translateX(-10%);
+}
+.album-record .inside-back,
+.album-record.stage-2 .inside-front {
   transform: rotateY(-180deg);
 }
-.album-record .back.active {
-  transform: none;
-  z-index: 1;
+.album-record .back,
+.album-record.stage-3 .inside-back {
+  transform: translateX(-30%);
 }
-.album-record .front.active {
-  transform: rotateY(180deg);
-  transition: transform .3s, z-index 0s .1s;
-  z-index: -1;
+.album-record.stage-1 .front,
+.album-record.stage-2 .front,
+.album-record.stage-3 .front {
+  transform: translateX(-30%);
+  opacity: 0
+}
+.album-record.stage-1 .inside-front,
+.album-record.stage-2 .inside-back,
+.album-record.stage-3 .back {
+  transform: none;
+  opacity: 1;
 }
 .album-backdrop {
   position: absolute;
