@@ -3,6 +3,8 @@
   // Carousel
   let carouselItems = document.querySelectorAll('.carousel-item');
   if (carouselItems.length) {
+    let hoverWrapperFirst = document.querySelector('.hover-wrapper.first');
+    let hoverWrapperSecond = document.querySelector('.hover-wrapper.second');
     let carouselActive;
     let activeIndex;
     Array.prototype.forEach.call(carouselItems, function(el, i) {
@@ -19,6 +21,8 @@
         activeIndex = carouselItems.length - 1;
       }
       carouselItems[activeIndex].classList.add('active');
+      hoverWrapperFirst.classList.remove('inactive');
+      hoverWrapperSecond.classList.remove('active');
     });
 
     document.getElementById('next-btn').addEventListener("click", function() {
@@ -28,6 +32,15 @@
         activeIndex = 0;
       }
       carouselItems[activeIndex].classList.add('active');
+      hoverWrapperFirst.classList.remove('inactive');
+      hoverWrapperSecond.classList.remove('active');
+    });
+
+    hoverWrapperFirst.addEventListener('click', function() {
+      hoverWrapperFirst.classList.add('inactive');
+    });
+    hoverWrapperSecond.addEventListener('click', function() {
+      hoverWrapperSecond.classList.add('active');
     });
   }
 
@@ -43,31 +56,45 @@
     function findCenter(el) {
       let albumWrapperRect = albumWrapper.getBoundingClientRect();
       let elRect = el.getBoundingClientRect();
-      let left = (albumWrapperRect.left - elRect.left) + albumWrapperRect.width / 2 - elRect.width / 2;
+      let windowWidth = window.innerWidth;
+      let left = -elRect.left + windowWidth / 2 - elRect.width / 2;
       let top = (albumWrapperRect.top - elRect.top) + albumWrapperRect.height / 2 - elRect.height / 2;
-      let scale = window.innerHeight / elRect.height;
+      let scale = (window.innerHeight - 100) / elRect.height;
 
       return 'translate(' + left + 'px,' + top + 'px) scale('+ scale +')';
     }
     function resetTape() {
       albumTape.classList.remove('stage-1');
-      albumTape.classList.remove('stage-2');
-      albumTape.classList.remove('stage-3');
       albumTape.classList.remove('active');
+      albumTape.querySelector('.back').classList.remove('active');
+      albumTape.querySelector('.front').classList.remove('active');
+      albumTape.querySelector('.inside-front').classList.remove('active');
+      albumTape.querySelector('.inside-back').classList.remove('active');
     }
+    albumTape.querySelector('.front').addEventListener('click', function() {
+      let back = albumTape.querySelector('.back');
+      let front = albumTape.querySelector('.front');
+      if (front.classList.contains('active')) {
+        front.classList.remove('active');
+        back.classList.remove('active');
+      } else {
+        front.classList.add('active');
+        back.classList.add('active');
+      }
+    });
+    albumTape.querySelector('.inside-front').addEventListener('click', function() {
+      let back = albumTape.querySelector('.inside-back');
+      let front = albumTape.querySelector('.inside-front');
+      if (front.classList.contains('active')) {
+        front.classList.remove('active');
+        back.classList.remove('active');
+      } else {
+        front.classList.add('active');
+        back.classList.add('active');
+      }
+    });
     albumTape.addEventListener("click", function() {
-      if (this.classList.contains('stage-3')) {
-        this.classList.remove('stage-3');
-
-      } else if (this.classList.contains('stage-2')) {
-        this.classList.remove('stage-2');
-        this.classList.add('stage-3');
-
-      } else if (this.classList.contains('stage-1')) {
-        this.classList.remove('stage-1');
-        this.classList.add('stage-2');
-
-      } else if (this.classList.contains('active')) {
+      if (this.classList.contains('active')) {
         this.classList.add('stage-1');
 
       } else {
@@ -123,23 +150,36 @@
 
     function resetRecord() {
       albumRecord.classList.remove('stage-1');
-      albumRecord.classList.remove('stage-2');
-      albumRecord.classList.remove('stage-3');
       albumRecord.classList.remove('active');
+      albumRecord.querySelector('.back').classList.remove('active');
+      albumRecord.querySelector('.front').classList.remove('active');
+      albumRecord.querySelector('.inside-front').classList.remove('active');
+      albumRecord.querySelector('.inside-back').classList.remove('active');
     }
+    albumRecord.querySelector('.front').addEventListener('click', function() {
+      let back = albumRecord.querySelector('.back');
+      let front = albumRecord.querySelector('.front');
+      if (front.classList.contains('active')) {
+        front.classList.remove('active');
+        back.classList.remove('active');
+      } else {
+        front.classList.add('active');
+        back.classList.add('active');
+      }
+    });
+    albumRecord.querySelector('.inside-front').addEventListener('click', function() {
+      let back = albumRecord.querySelector('.inside-back');
+      let front = albumRecord.querySelector('.inside-front');
+      if (front.classList.contains('active')) {
+        front.classList.remove('active');
+        back.classList.remove('active');
+      } else {
+        front.classList.add('active');
+        back.classList.add('active');
+      }
+    });
     albumRecord.addEventListener("click", function() {
-      if (this.classList.contains('stage-3')) {
-        this.classList.remove('stage-3');
-
-      } else if (this.classList.contains('stage-2')) {
-        this.classList.remove('stage-2');
-        this.classList.add('stage-3');
-
-      } else if (this.classList.contains('stage-1')) {
-        this.classList.remove('stage-1');
-        this.classList.add('stage-2');
-
-      } else if (this.classList.contains('active')) {
+      if (this.classList.contains('active')) {
         this.classList.add('stage-1');
 
       } else {

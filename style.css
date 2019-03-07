@@ -35,7 +35,7 @@ a.active {
 }
 
 .sidebar {
-  width: 300px;
+  width: 350px;
   flex-shrink: 0;
 }
 .sidebar.white,
@@ -50,8 +50,8 @@ a.active {
 .category {
   font-weight: bold;
 }
-.category.water:hover,
-.category.water.active {
+.water:hover,
+.water.active {
   color: #FF0017;
 }
 
@@ -130,7 +130,7 @@ a.active {
 }
 .carousel-item {
   position: absolute;
-  top: 0;
+  bottom: 0;
   opacity: 0;
   transition: opacity .3s;
 }
@@ -167,14 +167,21 @@ a.active {
 .text-box {
   position: absolute;
   overflow: auto;
-  height: 450px;
-  width: 300px;
+  height: 60%;
+  width: 350px;
   bottom: 0;
-  left: -300px;
+  left: -350px;
   padding-right: 20px;
   box-sizing: border-box;
   line-height: 18px;
   background-color: #fff;
+}
+.text-box.second,
+.hover-wrapper.first.inactive ~ .text-box.first {
+  display: none;
+}
+.hover-wrapper.first.inactive ~ .text-box.second {
+  display: block;
 }
 .carousel-item .button {
   position: absolute;
@@ -182,6 +189,32 @@ a.active {
   padding: 15px;
   bottom: 0;
   left: 0;
+}
+.hover-wrapper.first {
+  cursor: pointer;
+  position: relative;
+  z-index: 3
+}
+.hover-wrapper.first.inactive {
+  z-index: 1;
+}
+.hover-wrapper.second {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+.hover-wrapper.second iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: -1;
+}
+.hover-wrapper.second.active iframe {
+  opacity: 1;
+  z-index: 1;
 }
 
 
@@ -234,28 +267,44 @@ a.active {
 .album-tape .inside-back {
   opacity: 0;
 }
-.album-tape .inside-front {
-  transform: translateX(-10%);
-}
-.album-tape .inside-back,
-.album-tape.stage-2 .inside-front {
-  transform: rotateY(-180deg);
-}
 .album-tape .back,
-.album-tape.stage-3 .inside-back {
-  transform: translateX(-30%);
+.album-tape .inside-back {
+  transform: rotateY(-180deg);
+  z-index: -1;
 }
-.album-tape.stage-1 .front,
-.album-tape.stage-2 .front,
-.album-tape.stage-3 .front {
-  transform: translateX(-30%);
-  opacity: 0
-}
-.album-tape.stage-1 .inside-front,
-.album-tape.stage-2 .inside-back,
-.album-tape.stage-3 .back {
-  transform: none;
+.album-tape.stage-1 .front {
   opacity: 1;
+}
+.album-tape.stage-1 .front {
+  transform: translateX(-50%);
+}
+.album-tape.stage-1 .back {
+  transform: translateX(-50%) rotateY(-180deg);
+}
+
+.album-tape.stage-1 .inside-front {
+  opacity: 1;
+  transform: translateX(50%);
+}
+.album-tape.stage-1 .inside-back {
+  transform: translateX(50%) rotateY(-180deg);
+}
+
+.album-tape.stage-1 .front.active {
+  opacity: 0;
+  transform: translateX(-50%) rotateY(180deg);
+}
+.album-tape.stage-1 .inside-front.active {
+  opacity: 0;
+  transform: translateX(50%) rotateY(180deg);
+}
+.album-tape.stage-1 .back.active {
+  opacity: 1;
+  transform: translateX(-50%);
+}
+.album-tape.stage-1 .inside-back.active {
+  opacity: 1;
+  transform: translateX(50%);
 }
 
 .album-insert .front,
@@ -264,7 +313,7 @@ a.active {
 .album-insert .inside-bottom {
   position: absolute;
   top: 0;
-  transition: transform .3s, opacity .3s;
+  transition: transform .5s, opacity .5s;
 }
 .album-insert .back,
 .album-insert .inside-top,
@@ -278,7 +327,7 @@ a.active {
   transform: translateY(-8%);
   width: inherit;
   height: inherit;
-  transition: transform .3s;
+  transition: transform .5s;
 }
 .album-insert.stage-1 .wrapper,
 .album-insert.stage-3 .wrapper {
@@ -295,12 +344,12 @@ a.active {
 .album-insert .front.inactive {
   opacity: 0;
   transform: rotateX(180deg);
-  transition: transform .3s, opacity 0s .3s;
+  transition: transform .5s, opacity 0s .5s;
   z-index: -1;
 }
 .album-insert.stage-4 .front.inactive {
   transform: rotateX(360deg);
-  transition: transform .3s, z-index 0s .1s;
+  transition: transform .5s, z-index 0s .1s;
   z-index: 1;
   opacity: 1;
 }
@@ -313,7 +362,7 @@ a.active {
   z-index: 1;
   opacity: 1;
   transform: rotateX(180deg);
-  transition: transform .3s, opacity .3s, z-index 0s .3s;
+  transition: transform .5s, opacity .5s, z-index 0s .5s;
 }
 .album-insert.stage-2 .back.active, {
   transform: rotateX(180deg);
@@ -321,7 +370,7 @@ a.active {
 .album-insert.stage-3 .back.active {
   opacity: 0;
   transform: none;
-  transition: transform .3s, opacity 0s .3s, z-index 0s .3s;
+  transition: transform .5s, opacity 0s .5s, z-index 0s .5s;
 }
 .album-insert.stage-4 .back.active {
   opacity: 0;
@@ -339,7 +388,7 @@ a.active {
 .album-insert.stage-3 .inside-top.active,
 .album-insert.stage-4 .inside-top.active {
   transform: none;
-  transition: transform .3s, opacity .3s, z-index 0s .1s;
+  transition: transform .5s, opacity .5s, z-index 0s .1s;
   opacity: 1;
 }
 .album-insert.stage-3 .inside-top.active {
@@ -352,7 +401,7 @@ a.active {
 .album-insert .inside-bottom {
   opacity: 0;
   transform: translateY(100%);
-  transition: transform .3s;
+  transition: transform .5s;
   z-index: -1;
 }
 .album-insert.stage-3 .inside-bottom {
@@ -375,29 +424,48 @@ a.active {
 .album-record .inside-back {
   opacity: 0;
 }
-.album-record .inside-front {
-  transform: translateX(-10%);
-}
-.album-record .inside-back,
-.album-record.stage-2 .inside-front {
-  transform: rotateY(-180deg);
-}
 .album-record .back,
-.album-record.stage-3 .inside-back {
-  transform: translateX(-30%);
+.album-record .inside-back {
+  transform: rotateY(-180deg);
+  z-index: -1;
 }
-.album-record.stage-1 .front,
-.album-record.stage-2 .front,
-.album-record.stage-3 .front {
-  transform: translateX(-30%);
-  opacity: 0
-}
-.album-record.stage-1 .inside-front,
-.album-record.stage-2 .inside-back,
-.album-record.stage-3 .back {
-  transform: none;
+
+.album-record.stage-1 .front {
   opacity: 1;
 }
+.album-record.stage-1 .front {
+  transform: translateX(-50%);
+}
+.album-record.stage-1 .back {
+  transform: translateX(-50%) rotateY(-180deg);
+}
+
+.album-record.stage-1 .inside-front {
+  opacity: 1;
+  transform: translateX(50%);
+}
+.album-record.stage-1 .inside-back {
+  transform: translateX(50%) rotateY(-180deg);
+}
+
+.album-record.stage-1 .front.active {
+  opacity: 0;
+  transform: translateX(-50%) rotateY(180deg);
+}
+.album-record.stage-1 .inside-front.active {
+  opacity: 0;
+  transform: translateX(50%) rotateY(180deg);
+}
+.album-record.stage-1 .back.active {
+  opacity: 1;
+  transform: translateX(-50%);
+}
+.album-record.stage-1 .inside-back.active {
+  opacity: 1;
+  transform: translateX(50%);
+}
+
+
 .album-backdrop {
   position: absolute;
   top: 0;
@@ -412,6 +480,32 @@ a.active {
   transition: background-color .3s;
   background-color: rgba(255,255,255,.2);
   z-index: 1;
+}
+.background-gifs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.background-gifs .img-1 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 24%;
+}
+.background-gifs .img-2 {
+  position: absolute;
+  top: 60%;
+  left: 30%;
+  width: 20%;
+}
+.background-gifs .img-4 {
+  position: absolute;
+  top: 60%;
+  right: 10%;
+  width: 20%;
 }
 
 .coming-soon {
