@@ -41,30 +41,29 @@
     let albumInsert = document.querySelector('.album-insert');
     let albumRecord = document.querySelector('.album-record');
     let albumBackdrop = document.querySelector('.album-backdrop');
-    let albumTapeCenter, albumInsertCenter, albumRecordCenter;
 
-    function findCenter(el) {
+    function findCenter(el, scale) {
       let albumWrapperRect = albumWrapper.getBoundingClientRect();
       let elRect = el.getBoundingClientRect();
       let left = (albumWrapperRect.left - elRect.left) + albumWrapperRect.width / 2 - elRect.width / 2;
+      let top = (albumWrapperRect.top - elRect.top) + albumWrapperRect.height / 2 - elRect.height / 2;
+      if (!scale) {
+        scale = window.innerHeight / elRect.height;
+      }
 
-      return 'translate(' + left + 'px, 0)';
+      return 'translate(' + left + 'px,' + top + 'px) scale('+ scale +')';
       console.log(albumWrapperRect, elRect, left);
     }
     albumTape.addEventListener("click", function() {
-      if (this.classList.contains('flip')) {
-        this.classList.remove('flip');
-        this.style.transform = albumTapeCenter;
+      if (this.classList.contains('stage-1')) {
+        this.classList.remove('stage-1');
 
       } else if (this.classList.contains('active')) {
-        // this.classList.remove('active');
-        this.classList.add('flip');
-        this.style.transform = albumTapeCenter + ' rotateY(180deg)';
+        this.classList.add('stage-1');
 
       } else {
         this.classList.add('active');
-        albumTapeCenter = findCenter(this);
-        this.style.transform = albumTapeCenter;
+        this.style.transform = findCenter(this);
       }
       albumInsert.style.opacity = 0;
       albumRecord.style.opacity = 0;

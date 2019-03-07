@@ -35,11 +35,16 @@ a.active {
 }
 
 .sidebar {
-  width: 350px;
+  width: 300px;
+  flex-shrink: 0;
 }
 
 .category {
   font-weight: bold;
+}
+.category.water:hover,
+.category.water.active {
+  color: #FF0017;
 }
 
 .logo {
@@ -93,24 +98,49 @@ a.active {
   justify-content: center;
 }
 .carousel-item {
-  display: none;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: opacity .3s;
 }
 .carousel-item.active {
-  display: block;
+  opacity: 1;
+  z-index: 1;
+}
+.carousel-item img {
+  max-width: 100%;
+}
+.carousel-item .hover {
+  position: absolute;
+  top: 0;
+  opacity: 1;
+  transition: opacity .3s;
+}
+.carousel-item .hover:hover {
+  opacity: 0;
 }
 .carousel-actions {
   position: absolute;
-  bottom: 20px;
-  right: 320px;
-  padding: 15px;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 30px;
+  padding: 0 15px;
   background-color: #fff;
+  z-index: 2;
+}
+.carousel-actions .slash {
+  display: inline-block;
+  font-size: 24px;
 }
 .text-box {
   position: absolute;
-  width: 320px;
-  bottom: 20px;
-  right: 0;
-  padding: 15px;
+  overflow: auto;
+  height: 450px;
+  width: 300px;
+  bottom: 0;
+  left: -300px;
+  padding-right: 20px;
   box-sizing: border-box;
   line-height: 18px;
   background-color: #fff;
@@ -120,7 +150,7 @@ a.active {
 /* Album */
 .album-wrapper {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   height: 100%;
   justify-content: space-between;
 }
@@ -136,6 +166,7 @@ a.active {
   transition: opacity .3s, transform .3s;
   z-index: 2;
 }
+.album-tape,
 .album-insert,
 .album-record {
   position: relative;
@@ -143,10 +174,20 @@ a.active {
   width: 300px;
   height: 300px;
 }
+.album-tape img,
 .album-insert img,
 .album-record img {
   width: 100%;
 }
+.album-tape .front,
+.album-tape .back,
+.album-tape .inside-front,
+.album-tape .inside-back {
+  position: absolute;
+  top: 0;
+  transition: transform .3s;
+}
+
 .album-insert .front,
 .album-insert .back,
 .album-insert .inside-top,
@@ -155,10 +196,8 @@ a.active {
   top: 0;
   transition: transform .3s;
 }
-.album-insert .inside-top,
-.album-insert .inside-bottom {
-  top: 100%;
-  opacity: 0;
+.album-insert {
+  height: 300px;
 }
 .album-insert .front {
   transition: none;
@@ -197,12 +236,14 @@ a.active {
   transform: rotateX(180deg);
 }
 .album-insert .inside-top {
-  transform-origin: top;
+  opacity: 0;
+  transform-origin: bottom;
+  transform: rotateX(-180deg);
   z-index: -1;
 }
 .album-insert.stage-3 .inside-top.active,
 .album-insert.stage-4 .inside-top.active {
-  transform: rotateX(180deg);
+  transform: none;
   transition: transform .3s, z-index 0s .1s;
   opacity: 1;
 }
@@ -214,6 +255,8 @@ a.active {
   z-index: -1;
 }
 .album-insert .inside-bottom {
+  top: 50%;
+  opacity: 0;
   transform-origin: top;
   transform: rotateX(180deg);
   transition: transform .3s, opacity 0s .3s;
@@ -223,6 +266,9 @@ a.active {
   transform: none;
   transition: none;
   z-index: -1;
+}
+.album-record {
+
 }
 .album-record .front,
 .album-record .back {
@@ -256,7 +302,7 @@ a.active {
 }
 .album-backdrop.active {
   transition: background-color .3s;
-  background-color: rgba(255,255,255,.8);
+  background-color: rgba(255,255,255,.2);
   z-index: 1;
 }
 
