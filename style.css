@@ -508,6 +508,23 @@ a.active {
   width: 20%;
 }
 
+.music-video {
+  position: relative;
+  padding-top: 56.25%;
+  margin-bottom: 100px;
+}
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.music-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .coming-soon {
   position: absolute;
   height: 100%;
