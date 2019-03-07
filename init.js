@@ -168,4 +168,22 @@
     });
   }
 
+
+  // Modal
+  let modal = document.querySelector('.modal');
+  if (modal) {
+    let modalTriggers = document.querySelectorAll('.modal-trigger');
+    if (modalTriggers.length) {
+      Array.prototype.forEach.call(modalTriggers, function(el, i) {
+        el.addEventListener('click', function() {
+          modal.classList.add('active');
+        });
+      });
+
+    }
+    modal.addEventListener('click', function() {
+      modal.classList.remove('active');
+    });
+  }
+
 })();
