@@ -191,6 +191,14 @@ a.active {
   bottom: 0;
   left: 0;
 }
+.hover-wrapper {
+  height: 100%;
+  width: 100%;
+}
+.hover-wrapper .hover {
+  left: 50%;
+  transform: translateX(-50%);
+}
 .hover-wrapper.first {
   cursor: pointer;
   position: relative;
@@ -320,9 +328,6 @@ a.active {
 .album-insert .inside-top,
 .album-insert .inside-bottom {
   opacity: 0;
-}
-.album-insert {
-  height: 300px;
 }
 .album-insert .wrapper {
   transform: translateY(-8%);
@@ -534,6 +539,15 @@ a.active {
   background-position: 0px 0px;
   background-repeat: repeat;
   background-size: 20%;
+}
+
+@media screen and (max-width: 1330px) {
+  .album-tape,
+  .album-insert,
+  .album-record {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 @media screen and (max-width: 400px) {
