@@ -5,6 +5,8 @@
   if (carouselItems.length) {
     let hoverWrapperFirst = document.querySelector('.hover-wrapper.first');
     let hoverWrapperSecond = document.querySelector('.hover-wrapper.second');
+    let textFirst = document.querySelector('.text-box.first');
+    let textSecond = document.querySelector('.text-box.second');
     let carouselActive;
     let activeIndex;
     Array.prototype.forEach.call(carouselItems, function(el, i) {
@@ -23,6 +25,7 @@
       carouselItems[activeIndex].classList.add('active');
       hoverWrapperFirst.classList.remove('inactive');
       hoverWrapperSecond.classList.remove('active');
+      textFirst.classList.remove('inactive');
     });
 
     document.getElementById('next-btn').addEventListener("click", function() {
@@ -34,10 +37,12 @@
       carouselItems[activeIndex].classList.add('active');
       hoverWrapperFirst.classList.remove('inactive');
       hoverWrapperSecond.classList.remove('active');
+      textFirst.classList.remove('inactive');
     });
 
     hoverWrapperFirst.addEventListener('click', function() {
       hoverWrapperFirst.classList.add('inactive');
+      textFirst.classList.add('inactive');
     });
     hoverWrapperSecond.addEventListener('click', function() {
       hoverWrapperSecond.classList.add('active');

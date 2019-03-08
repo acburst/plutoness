@@ -124,13 +124,12 @@ a.active {
 .carousel {
   position: relative;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .carousel-item {
   position: absolute;
-  bottom: 0;
+  height: 100%;
+  width: 100%;
+  top: 0;
   opacity: 0;
   transition: opacity .3s;
 }
@@ -140,6 +139,7 @@ a.active {
 }
 .carousel-item img {
   max-width: 100%;
+  max-height: 100%;
 }
 .carousel-item .hover {
   position: absolute;
@@ -167,7 +167,7 @@ a.active {
 .text-box {
   position: absolute;
   overflow: auto;
-  height: 60%;
+  height: 55%;
   width: 350px;
   bottom: 0;
   left: -350px;
@@ -177,10 +177,10 @@ a.active {
   background-color: #fff;
 }
 .text-box.second,
-.hover-wrapper.first.inactive ~ .text-box.first {
+.text-box.first.inactive {
   display: none;
 }
-.hover-wrapper.first.inactive ~ .text-box.second {
+.text-box.first.inactive ~ .text-box.second {
   display: block;
 }
 .carousel-item .button {
