@@ -20,19 +20,21 @@
       acc[i].classList.toggle('active');
       toggleList(acc[i]);
     }
-    acc[i].addEventListener("click", function() {
-      let siblings = Array.prototype.filter.call(this.parentNode.children, function(child){
-        return child !== this && child.classList.contains('category');
-      });
-      console.log( siblings);
-      for (var j = 0; j < siblings.length; j++) {
-        if (siblings[j].classList.contains('active') &&
-            siblings[j] !== this) {
-          toggleList(siblings[j]);
+    if (!acc[i].classList.contains('italics')) {
+      acc[i].addEventListener("click", function() {
+        let siblings = Array.prototype.filter.call(this.parentNode.children, function(child){
+          return child !== this && child.classList.contains('category');
+        });
+        console.log( siblings);
+        for (var j = 0; j < siblings.length; j++) {
+          if (siblings[j].classList.contains('active') &&
+              siblings[j] !== this) {
+            toggleList(siblings[j]);
+          }
         }
-      }
-      toggleList(this);
-    });
+        toggleList(this);
+      });
+    }
   }
   function toggleList(el) {
     el.classList.toggle("active");
