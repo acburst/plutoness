@@ -6,7 +6,12 @@
   let grid = document.querySelector(".grid");
   if (grid) {
     var msnry = new Masonry( '.grid', {
-      gutter: 20
+      columnWidth: '.grid-item',
+      itemSelector: '.grid-item',
+    });
+    imagesLoaded( grid ).on( 'progress', function() {
+      // layout Masonry after each image loads
+      msnry.layout();
     });
   }
 
