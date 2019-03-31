@@ -104,11 +104,11 @@ ul + .category.active {
 }
 
 .logo {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .logo img {
   display: block;
-  height: 130px;
+  height: 110px;
 }
 
 .modal {
@@ -328,8 +328,8 @@ ul + .category.active {
 }
 .watch-video {
   position: absolute;
-  bottom: 20%;
-  left: -350px;
+  bottom: 35px;
+  left: 0;
   width: 330px;
   z-index: 4;
   padding: 8px 0;
