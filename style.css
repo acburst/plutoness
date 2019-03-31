@@ -12,9 +12,27 @@ body {
 }
 
 ul {
-  font-weight: bold;
+  /*font-weight: bold;*/
   list-style-type: none;
-  padding-left: 10px;
+  padding: 0;
+  transition: max-height 0.2s ease-out;
+  max-height: 0;
+  overflow: hidden;
+  margin: 0 0 0 10px;
+}
+ul.open {
+  max-height: initial;
+  margin-top: 0;
+}
+ul > li:last-child {
+  padding-bottom: 20px;
+}
+
+.grid .grid-item {
+  width: 50%;
+}
+.grid .grid-item img {
+  width: 100%;
 }
 
 img {
@@ -38,6 +56,10 @@ a.active {
   width: 350px;
   flex-shrink: 0;
 }
+.sidebar a {
+  display: block;
+  color: #00BDDA;
+}
 .sidebar.white,
 .sidebar.white a {
   color: #fff;
@@ -50,9 +72,26 @@ a.active {
 .category {
   font-weight: bold;
 }
-.water:hover,
-.water.active {
-  color: #FF0017;
+
+.italics {
+  font-style: italic;
+  font-weight: normal;
+}
+.about {
+  color: #fff;
+}
+
+.bottom-center {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.center-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .logo {
@@ -60,6 +99,7 @@ a.active {
 }
 .logo img {
   display: block;
+  height: 110px;
 }
 
 .modal {
@@ -97,6 +137,14 @@ a.active {
   /*transform: translateX(0);*/
   opacity: 1;
 }
+.logo-wrapper > a {
+  color: #000;
+  font-weight: bold;
+}
+.logo-wrapper > ul > li:first-child {
+  padding-top: 20px;
+  padding-bottom: 0;
+}
 
 .dropdown li {
   display: block;
@@ -114,11 +162,111 @@ a.active {
   left: 200px;
 }
 
+.credits {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  color: #000;
+  background-color: #fff;
+  font-size: 8px;
+  padding: 8px;
+}
+.credits.top-right {
+  left: auto;
+  top: 0;
+  right: 0;
+  bottom: auto;
+}
+
 .content {
   width: 100%;
   min-height: 100%;
 }
 
+
+.paintings {
+  position: relative;
+  padding-bottom: 70.67%;
+}
+.painting {
+  width: 150px;
+}
+.painting img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.painting.p-1 {
+  position: absolute;
+  top: 27.07%;
+  left: 9%;
+  width: 24%;
+}
+.painting.p-2 {
+  position: absolute;
+  top: 16.57%;
+  left: 33.75%;
+  width: auto;
+  height: 41.74%;
+}
+.painting.p-3 {
+  position: absolute;
+  top: 0;
+  left: 57.83%;
+  width: auto;
+  height: 33.6%;
+}
+.painting.p-4 {
+  position: absolute;
+  top: 34.5%;
+  left: 56.83%;
+  width: 23.58%;
+}
+.painting.p-5 {
+  position: absolute;
+  top: 53.49%;
+  left: 10.92%;
+  width: auto;
+  height: 36.91%;
+}
+.painting.p-6 {
+  position: absolute;
+  top: 61.86%;
+  left: 33.75%;
+  width: 19.17%;
+}
+.painting.p-7 {
+  position: absolute;
+  top: 60.8%;
+  left: 53.92%;
+  width: 29.17%;
+}
+.painting.active {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  bottom: auto;
+  right: auto;
+  height: 80%;
+  width: auto;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+.painting-overlay {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0);
+  z-index: -1;
+}
+.painting-overlay.active {
+  background-color: rgba(0,0,0,.4);
+  z-index: 99;
+}
 
 /* Carousel */
 .carousel {
@@ -154,8 +302,7 @@ a.active {
 .carousel-actions {
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translate(-50%);
+  right: 0;
   font-size: 30px;
   padding: 0 15px;
   background-color: #fff;
@@ -165,10 +312,21 @@ a.active {
   display: inline-block;
   font-size: 24px;
 }
+.watch-video {
+  position: absolute;
+  bottom: 30%;
+  left: -350px;
+  width: 330px;
+  background-color: #fff;
+  z-index: 4;
+  padding: 8px 0;
+  font-size: 14px;
+  text-align: center;
+}
 .text-box {
   position: absolute;
   overflow: auto;
-  height: 55%;
+  height: 30%;
   width: 350px;
   bottom: 0;
   left: -350px;

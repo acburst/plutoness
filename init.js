@@ -1,4 +1,70 @@
 (function() {
+  // Accordion
+  var acc = document.getElementsByClassName("category");
+  var i;
+
+  let grid = document.querySelector(".grid");
+  if (grid) {
+    var msnry = new Masonry( '.grid', {
+      gutter: 20
+    });
+  }
+
+  for (i = 0; i < acc.length; i++) {
+    if (acc[i].classList.contains('active')) {
+      acc[i].classList.toggle('active');
+      toggleList(acc[i]);
+    }
+    acc[i].addEventListener("click", function() {
+      let siblings = Array.prototype.filter.call(this.parentNode.children, function(child){
+        return child !== this && child.classList.contains('category');
+      });
+      console.log( siblings);
+      for (var j = 0; j < siblings.length; j++) {
+        if (siblings[j].classList.contains('active') &&
+            siblings[j] !== this) {
+          toggleList(siblings[j]);
+        }
+      }
+      toggleList(this);
+    });
+  }
+  function toggleList(el) {
+    el.classList.toggle("active");
+    var panel = el.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  }
+
+  // Paintings lightbox
+  let paintings = document.querySelectorAll('.painting');
+  if (paintings.length) {
+    Array.prototype.forEach.call(paintings, function(el, i) {
+      el.addEventListener("click", function() {
+        console.log(el.clientWidth, el.clientHeight);
+        if (el.clientWidth > el.clientHeight) {
+          this.classList.add('landscape');
+        }
+        this.classList.toggle('active');
+
+        if (this.classList.contains('active')) {
+          document.querySelector('.painting-overlay').classList.add('active');
+        } else {
+          document.querySelector('.painting-overlay').classList.remove('active');
+        }
+      });
+    });
+
+    document.querySelector('.painting-overlay').addEventListener("click", function() {
+      Array.prototype.forEach.call(paintings, function(el, i) {
+        el.classList.remove('active');
+        document.querySelector('.painting-overlay').classList.remove('active');
+      });
+    });
+  }
 
   // Carousel
   let carouselItems = document.querySelectorAll('.carousel-item');
