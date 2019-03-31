@@ -72,6 +72,9 @@ a.active {
 .category {
   font-weight: bold;
 }
+.category.active {
+  padding-top: 20px;
+}
 
 .italics {
   font-style: italic;
@@ -140,6 +143,9 @@ a.active {
 .logo-wrapper > a {
   color: #000;
   font-weight: bold;
+}
+.logo-wrapper > a.active {
+  color: #00BDDA;
 }
 .logo-wrapper > ul > li:first-child {
   padding-top: 20px;
