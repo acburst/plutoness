@@ -328,9 +328,9 @@ ul + .category.active {
 }
 .watch-video {
   position: absolute;
-  bottom: 35px;
+  bottom: -45px;
   left: 0;
-  width: 330px;
+  width: 302px;
   z-index: 4;
   padding: 8px 0;
   font-size: 14px;
@@ -345,9 +345,9 @@ ul + .category.active {
   position: absolute;
   overflow: auto;
   max-height: 20%;
-  width: 350px;
-  bottom: 0;
-  left: -350px;
+  width: 400px;
+  bottom: 10px;
+  left: 10px;
   padding-right: 20px;
   box-sizing: border-box;
   line-height: 13px;
