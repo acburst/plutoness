@@ -75,6 +75,8 @@
 
   // Carousel
   let carouselItems = document.querySelectorAll('.carousel-item');
+  let watchVideo = document.querySelector('.watch-video');
+
   if (carouselItems.length) {
     let hoverWrapperFirst = document.querySelector('.hover-wrapper.first');
     let hoverWrapperSecond = document.querySelector('.hover-wrapper.second');
@@ -89,6 +91,13 @@
       }
     });
 
+    watchVideo.addEventListener('click', function() {
+      hoverWrapperFirst.classList.add('inactive');
+      textFirst.classList.add('inactive');
+      hoverWrapperSecond.classList.add('active');
+      this.style.display = 'none';
+    });
+
     document.getElementById('prev-btn').addEventListener("click", function() {
       carouselItems[activeIndex].classList.remove('active');
       activeIndex--;
@@ -99,6 +108,7 @@
       hoverWrapperFirst.classList.remove('inactive');
       hoverWrapperSecond.classList.remove('active');
       textFirst.classList.remove('inactive');
+      watchVideo.style.display = 'block';
     });
 
     document.getElementById('next-btn').addEventListener("click", function() {
@@ -111,11 +121,13 @@
       hoverWrapperFirst.classList.remove('inactive');
       hoverWrapperSecond.classList.remove('active');
       textFirst.classList.remove('inactive');
+      watchVideo.style.display = 'block';
     });
 
     hoverWrapperFirst.addEventListener('click', function() {
       hoverWrapperFirst.classList.add('inactive');
       textFirst.classList.add('inactive');
+      watchVideo.style.display = 'none';
     });
     hoverWrapperSecond.addEventListener('click', function() {
       hoverWrapperSecond.classList.add('active');
