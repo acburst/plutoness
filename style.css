@@ -102,6 +102,9 @@ ul + .category.active {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.center-center a {
+  color:#00BDDA;
+}
 
 .logo {
   margin-bottom: 20px;
