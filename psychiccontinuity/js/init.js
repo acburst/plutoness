@@ -44,10 +44,13 @@ function ready(fn) {
 
 const videoOptions = '?controls=1&modestbranding=1&autohide=1&autoplay=1&enablejsapi=1';
 const videos = [{
+  // 10:20 PM - 2:20 AM
   url: 'https://www.youtube.com/embed/hABRwKHU1OE' + videoOptions,
   length: 7 * 60 * 60 // 7 hours in seconds
 }, {
-  url: 'https://www.youtube.com/embed/hABRwKHU1OE' + videoOptions
+  // 5:@0 PM - 6:20 PM
+  url: 'https://www.youtube.com/embed/WojKvsFyD7A' + videoOptions,
+  length: 60 * 60 // 1 hours in seconds
 }]
 
 const audioOptions = '&amp;auto_play=true&amp;show_artwork=false&amp;show_playcount=false&amp;show_user=false&amp;sharing=false&amp;buying=false&amp;download=false';
@@ -55,9 +58,15 @@ const audios = [{
   url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293' + audioOptions
 }]
 
+const wormholes = [{
+  id: 'wormhole-1',
+  start: 60 * 60, // 1 hour
+  end: 61 * 60
+}]
+
 function convertDateToTimestamp(d) {
-  let startHour = 12;
-  let startMinute = 37;
+  let startHour = 22;
+  let startMinute = 01;
   let date = new Date();
   let hour = date.getUTCHours() - 4; // UTC - 4 is EDT, east coast time
   let minute = date.getUTCMinutes();
@@ -76,6 +85,10 @@ function convertDateToTimestamp(d) {
 
   // Return seconds from start time
   return (diffHours * 60 * 60) + (diffMinutes * 60) + second;
+}
+
+function convertSecondsToTimer(n) {
+  return new Date(n * 1000).toISOString().substr(14, 5)
 }
 
 window.ready(function() {
@@ -147,10 +160,33 @@ window.ready(function() {
     titleChanger.classList.toggle('active');
   });
 
-  // Time syncing
-
   // Janky interval
   setInterval(() => {
     checkAndChangeVideo();
+
+    // Render wormholes
+    let seconds = convertDateToTimestamp(new Date());
+    let showWormhole = false;
+    let currentWormhole = document.getElementById('wormhole');
+    for (var i = 0; i < wormholes.length; i++) {
+      if (seconds >= wormholes[i].start &&
+          seconds <= wormholes[i].end) {
+        showWormhole = true;
+        if (currentWormhole) {
+          if (currentWormhole.classList.contains('active')) {
+            let secondsLeft = wormholes[i].end - seconds;
+            let timer = document.getElementById('timer');
+            timer.textContent = convertSecondsToTimer(secondsLeft);
+          } else {
+            currentWormhole.classList.add('active');
+          }
+        }
+        break;
+      }
+    }
+    if (!showWormhole) {
+      currentWormhole.classList.remove('active');
+    }
+
   }, 1000)
 });

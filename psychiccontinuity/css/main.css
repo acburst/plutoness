@@ -267,12 +267,17 @@ h2 {
 }
 
 #wormhole {
+  display: none;
   cursor: pointer;
   position: absolute;
   top: 40%;
   left: 30%;
   color: #43eb34;
 }
+#wormhole.active {
+  display: block;
+}
+
 
 #main-audio {
   position: absolute;
