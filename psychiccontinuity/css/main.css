@@ -271,7 +271,7 @@ h2 {
   cursor: pointer;
   position: absolute;
   top: 40%;
-  left: 30%;
+  left: 420px;
   color: #43eb34;
 }
 #wormhole.active {
@@ -289,8 +289,8 @@ h2 {
 #timeline {
   position: absolute;
   top: 100px;
-  left: 80px;
-  width: 340px;
+  left: 60px;
+  width: 300px;
 }
 #timeline img {
   width: 100%;
@@ -333,6 +333,9 @@ h2 {
     4px 4px #c75204,
     5px 5px #c75204,
     6px 6px #c75204;
+}
+#title-changer li.small.active {
+  font-size: 75px;
 }
 
 #title-changer.active {

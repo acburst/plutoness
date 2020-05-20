@@ -72,24 +72,69 @@ const videos = [{
   url: 'https://www.youtube.com/embed/WojKvsFyD7A' + videoOptions,
   length: 60 * 60 // 1 hours in seconds
 }, {
-  // 6:20 PM - 10:20 PM
+  // 6:20 PM - 9:20 PM
   // TODO: add real video
   url: 'https://www.youtube.com/embed/lM02vNMRRB0' + videoOptions,
-  length: 4 * 60 * 60 // 4 hours in seconds
+  length: 3 * 60 * 60 // 4 hours in seconds
+}, {
+  // 9:20 PM - 10:20 PM
+  url: 'https://www.youtube.com/embed/LqxMNkm1Teg' + videoOptions,
+  length: 60 * 60 // 1 hour in seconds
 }]
 
 // TODO: soundcloud sync to time
 const audioOptions = '&amp;auto_play=true&amp;show_artwork=false&amp;show_playcount=false&amp;show_user=false&amp;sharing=false&amp;buying=false&amp;download=false';
 const audios = [{
-  url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293' + audioOptions,
-  length: 3 * 60, // 3 minutes in seconds
+  // 10:20 PM
+  url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/824678797' + audioOptions,
+  length: (3 * 60) + 47, // 3 minutes 47 seconds
 }, {
-  // url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/689218417' + audioOptions,
   url: null,
-  length: (24 * 60 * 60) - (3 * 60)
+  length: (56 * 60) + 13
+}, {
+  // 11:20 PM
+  url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/824690302' + audioOptions,
+  length: (35 * 60) + 29, // 35 minutes 29 seconds
+}, {
+  url: null,
+  length: (5 * 60 * 60) + (24 * 60) + 31
+}, {
+  // 5:20 AM
+  url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/824669977' + audioOptions,
+  length: (8 * 60) + 26, // 8 minutes 26 seconds
+}, {
+  url: null,
+  length: (2 * 60 * 60) + (51 * 60) + 34,
+}, {
+  // 8:20 AM
+  url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/824679112' + audioOptions,
+  length: (4 * 60) + 29, // 4 minutes 29 seconds
+}, {
+  url: null,
+  length: (1 * 60 * 60) + (55 * 60) + 31
+}, {
+  // 10:20 AM
+  url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/824679799' + audioOptions,
+  length: (2 * 60) + 49, // 2 minutes 49 seconds
+}, {
+  url: null,
+  length: (5 * 60 * 60) + (57 * 60) + 11
+}, {
+  // 4:20 PM
+  url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/824677906' + audioOptions,
+  length: (3 * 60) + 35, // 3 minutes 35 seconds
+}, {
+  url: null,
+  length: (4 * 60 * 60) + (56 * 60) + 25
+}, {
+  // 9:20 PM
+  url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/824705536' + audioOptions,
+  length: (21 * 60) + 29 // 21 minutes 29 seconds
+}, {
+  url: null,
+  length: (38 * 60) + 31
 }]
 
-// TODO: wormhole switch videos
 const wormholes = [{
   id: 'wormhole-1',
   url: 'https://www.youtube.com/embed/vxmogAJgNlk' + videoOptions,
@@ -97,7 +142,6 @@ const wormholes = [{
   end: 19 * 60 * 60, // 5:20PM
 }]
 
-// TODO: different gifs
 const pastPresentFuture = [{
   src: 'img/mostlypresent.gif',
   length: 2 * 60,
