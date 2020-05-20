@@ -79,16 +79,21 @@ const videos = [{
   length: 4 * 60 * 60 // 4 hours in seconds
 }]
 
+// TODO: soundcloud sync to time
 const audioOptions = '&amp;auto_play=true&amp;show_artwork=false&amp;show_playcount=false&amp;show_user=false&amp;sharing=false&amp;buying=false&amp;download=false';
 const audios = [{
-  url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293' + audioOptions
+  url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293' + audioOptions,
 }]
 
+// TODO: wormhole switch videos
 const wormholes = [{
   id: 'wormhole-1',
-  start: 18 * 60 * 60, // 4:20pm
-  end: 19 * 60 * 60
+  start: 18 * 60 * 60, // 4:20PM
+  end: 19 * 60 * 60, // 5:20PM
 }]
+
+// TODO: different gifs
+// const pastPresentFuture;
 
 function convertDateToTimestamp(d) {
   // Make sure to offset by UTC - 4 (EDT)
@@ -149,8 +154,6 @@ window.ready(function() {
     window.startHour = hour - parseInt(params.startHour) - 2;
     if (window.startHour > 24) window.startHour -= 24;
     else if (window.startHour < 0) window.startHour = 24 + window.startHour;
-
-    console.log(window.startHour);
   }
   if (params.startMinute) {
     let minute = date.getUTCMinutes();
@@ -162,11 +165,8 @@ window.ready(function() {
   const checkAndChangeVideo = () => {
     let date = new Date();
     let seconds = convertDateToTimestamp(date);
-
-      console.log(seconds);
     let i = 0
     for (i = 0; i < videos.length; i++) {
-      console.log(seconds, videos[i].length);
       if (seconds > videos[i].length) {
         seconds -= videos[i].length;
       } else {

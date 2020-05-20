@@ -275,7 +275,15 @@ h2 {
   color: #43eb34;
 }
 #wormhole.active {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#wormhole.active img {
+  margin-right: 20px;
+}
+#timer {
+  color: #fff;
 }
 
 #timeline {
