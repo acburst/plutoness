@@ -83,11 +83,17 @@ const videos = [{
 const audioOptions = '&amp;auto_play=true&amp;show_artwork=false&amp;show_playcount=false&amp;show_user=false&amp;sharing=false&amp;buying=false&amp;download=false';
 const audios = [{
   url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293' + audioOptions,
+  length: 3 * 60, // 3 minutes in seconds
+}, {
+  // url: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/689218417' + audioOptions,
+  url: null,
+  length: (24 * 60 * 60) - (3 * 60)
 }]
 
 // TODO: wormhole switch videos
 const wormholes = [{
   id: 'wormhole-1',
+  url: 'https://www.youtube.com/embed/lM02vNMRRB0' + videoOptions,
   start: 18 * 60 * 60, // 4:20PM
   end: 19 * 60 * 60, // 5:20PM
 }]
@@ -183,22 +189,62 @@ window.ready(function() {
     }
   }
 
+  const checkAndChangeAudio = () => {
+    let date = new Date();
+    let seconds = convertDateToTimestamp(date);
+    let i = 0
+    for (i = 0; i < audios.length; i++) {
+      if (seconds > audios[i].length) {
+        seconds -= audios[i].length;
+      } else {
+        break;
+      }
+    }
+
+    // Change video
+    if (i !== mainAudioIndex) {
+      console.log("CHANGE AUDIO", i, seconds);
+      mainAudioIndex = i;
+      mainAudio.setAttribute('seconds', seconds);
+      if (audios[mainAudioIndex].url) {
+        mainAudio.src = audios[mainAudioIndex].url;
+        allowSoundcloudBtn.style.display = 'block';
+      } else {
+        allowSoundcloudBtn.style.display = 'none';
+      }
+    }
+  }
+
   let mainVideo = document.getElementById('main-video');
+  let mainAudio = document.getElementById('main-audio');
+  let allowSoundBtn = document.getElementById('allow-sound');
+  let allowSoundcloudBtn = document.getElementById('allow-sound-soundcloud');
+  let titleChanger = document.getElementById('title-changer');
+  let wormhole = document.getElementById('wormhole');
+  let wormholeText = document.querySelector('#wormhole .text');
   let mainVideoIndex = null;
+  let mainAudioIndex = null;
+  let wormholeIndex = 0;
+
   mainVideo.width = "100%";
   mainVideo.height = "100%";
   checkAndChangeVideo();
 
-  let mainAudio = document.getElementById('main-audio');
   mainAudio.src = audios[0].url;
   let mainAudioWidget = SC.Widget(mainAudio);
   mainAudioWidget.bind(SC.Widget.Events.READY, function() {
+    console.log("ON AUDIO READY");
     // set new volume level
+    let seconds = mainAudio.getAttribute('seconds');
+    if (!seconds) seconds = convertDateToTimestamp(new Date());
+    console.log("AUDIO SECONDS", seconds);
+    mainAudioWidget.seekTo(20 * 1000);
     mainAudioWidget.setVolume(0);
   });
+  checkAndChangeAudio();
 
-  let allowSoundBtn = document.getElementById('allow-sound');
   allowSoundBtn.addEventListener('click', () => {
+    console.log(player);
     if (allowSoundcloudBtn.classList.contains('active')) {
       player.setVolume(0);
     } else {
@@ -207,7 +253,6 @@ window.ready(function() {
     allowSoundBtn.classList.toggle('active');
   })
 
-  let allowSoundcloudBtn = document.getElementById('allow-sound-soundcloud');
   allowSoundcloudBtn.addEventListener('click', () => {
     if (allowSoundcloudBtn.classList.contains('active')) {
       mainAudioWidget.setVolume(0);
@@ -219,7 +264,6 @@ window.ready(function() {
   })
 
   // Title dropdown
-  let titleChanger = document.getElementById('title-changer');
   titleChanger.addEventListener('click', (e) => {
     if (titleChanger.classList.contains('active') &&
         e.target.tagName === 'LI') {
@@ -230,32 +274,47 @@ window.ready(function() {
     titleChanger.classList.toggle('active');
   });
 
+  // Wormhole switcher
+  wormhole.addEventListener('click', () => {
+    if (window.inWormhole) {
+      wormholeText.textContent = 'a wormhole appeared !'
+      mainVideoIndex = null;
+      window.inWormhole = false;
+    } else {
+      let seconds = player.getCurrentTime();
+      mainVideo.src = wormholes[wormholeIndex].url;
+      wormholeText.textContent = 'go back'
+      window.inWormhole = true;
+    }
+  });
+
   // Janky interval
   setInterval(() => {
     checkAndChangeVideo();
+    checkAndChangeAudio();
 
     // Render wormholes
     let seconds = convertDateToTimestamp(new Date());
     let showWormhole = false;
-    let currentWormhole = document.getElementById('wormhole');
     for (var i = 0; i < wormholes.length; i++) {
       if (seconds >= wormholes[i].start &&
           seconds <= wormholes[i].end) {
+        wormholeIndex = i;
         showWormhole = true;
-        if (currentWormhole) {
-          if (currentWormhole.classList.contains('active')) {
+        if (wormhole) {
+          if (wormhole.classList.contains('active')) {
             let secondsLeft = wormholes[i].end - seconds;
             let timer = document.getElementById('timer');
             timer.textContent = convertSecondsToTimer(secondsLeft);
           } else {
-            currentWormhole.classList.add('active');
+            wormhole.classList.add('active');
           }
         }
         break;
       }
     }
     if (!showWormhole) {
-      currentWormhole.classList.remove('active');
+      wormhole.classList.remove('active');
     }
 
   }, 1000)
