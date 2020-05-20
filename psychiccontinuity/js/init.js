@@ -6,10 +6,9 @@ tag.src = 'https://www.youtube.com/iframe_api';
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-var player;
 function onYouTubeIframeAPIReady() {
   console.log("YOUTUBE IFRAME READY");
-  player = new YT.Player('main-video', {
+  window.player = new YT.Player('main-video', {
       events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange
@@ -93,13 +92,244 @@ const audios = [{
 // TODO: wormhole switch videos
 const wormholes = [{
   id: 'wormhole-1',
-  url: 'https://www.youtube.com/embed/lM02vNMRRB0' + videoOptions,
+  url: 'https://www.youtube.com/embed/vxmogAJgNlk' + videoOptions,
   start: 18 * 60 * 60, // 4:20PM
   end: 19 * 60 * 60, // 5:20PM
 }]
 
 // TODO: different gifs
-// const pastPresentFuture;
+const pastPresentFuture = [{
+  src: 'img/mostlypresent.gif',
+  length: 2 * 60,
+}, {
+  src: 'img/mostlyfuture.gif',
+  length: 2 * 60,
+}, {
+  src: 'img/future.gif',
+  length: 59 * 60,
+}, {
+  src: 'img/mostlyfuture.gif',
+  length: 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 2 * 60,
+}, {
+  src: 'img/mostlyfuture.gif',
+  length: 4 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 2 * 60,
+}, {
+  src: 'img/mostlyfuture.gif',
+  length: 60,
+}, {
+  src: 'img/future.gif',
+  length: 2 * 60,
+}, {
+  src: 'img/mostlyfuture.gif',
+  length: 2 * 60,
+}, {
+  src: 'img/future.gif',
+  length: 10 * 60,
+}, {
+  src: 'img/mostlyfuture.gif',
+  length: 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 60,
+}, {
+  src: 'img/mostlyfuture.gif',
+  length: 11 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 9 * 60,
+}, {
+  src: 'img/allover.gif',
+  length: (5 * 60 * 60) + (46 * 60), // 5 hours 46 mins
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 60,
+}, {
+  src: 'img/allover.gif',
+  length: 32 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 5 * 60,
+}, {
+  src: 'img/present.gif',
+  length: 8 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 60,
+}, {
+  src: 'img/allover.gif',
+  length: 4 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 18 * 60,
+}, {
+  src: 'img/present.gif',
+  length: 60 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 3 * 60,
+}, {
+  src: 'img/allover.gif',
+  length: 13 * 60,
+}, {
+  src: 'img/present.gif',
+  length: 5 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 2 * 60,
+}, {
+  src: 'img/present.gif',
+  length: 3 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 60,
+}, {
+  src: 'img/allover.gif',
+  length: 3 * 60,
+}, {
+  src: 'img/past.gif',
+  length: 12 * 60,
+}, {
+  src: 'img/mostlypast.gif',
+  length: 60,
+}, {
+  src: 'img/pastfuturedanger.gif',
+  length: 3 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 60,
+}, {
+  src: 'img/allover.gif',
+  length: 4 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 60,
+}, {
+  src: 'img/mostlyfuture.gif',
+  length: 11 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 60,
+}, {
+  src: 'img/mostlyfuture.gif',
+  length: 12 * 60,
+}, {
+  src: 'img/present.gif',
+  length: 4 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 6 * 60,
+}, {
+  src: 'img/allover.gif',
+  length: 11 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 60,
+}, {
+  src: 'img/present.gif',
+  length: 60,
+}, {
+  src: 'img/mostlyfuture.gif',
+  length: 2 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 11 * 60,
+}, {
+  src: 'img/allover.gif',
+  length: 60,
+}, {
+  src: 'img/past.gif',
+  length: 60,
+}, {
+  src: 'img/present.gif',
+  length: 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 15 * 60,
+}, {
+  src: 'img/allover.gif',
+  length: 3 * 60,
+}, {
+  src: 'img/present.gif',
+  length: 6 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 20 * 60,
+}, {
+  src: 'img/allover.gif',
+  length: 3 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 12 * 60,
+}, {
+  src: 'img/present.gif',
+  length: 7 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 60,
+}, {
+  src: 'img/allover.gif',
+  length: 7 * 60,
+}, {
+  src: 'img/mostlyfuture.gif',
+  length: 4 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 5 * 60,
+}, {
+  src: 'img/allover.gif',
+  length: 5 * 60 * 60,
+}, {
+  src: 'img/mostlyfuture.gif',
+  length: 60,
+}, {
+  src: 'img/allover.gif',
+  length: 2 * 60,
+}, {
+  src: 'img/mostlyfuture.gif',
+  length: 60,
+}, {
+  src: 'img/past.gif',
+  length: 3 * 60,
+}, {
+  src: 'img/allover.gif',
+  length: 3 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 3 * 60,
+}, {
+  src: 'img/allover.gif',
+  length: 7 * 60,
+}, {
+  src: 'img/mostlypast.gif',
+  length: 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 60,
+}, {
+  src: 'img/present.gif',
+  length: 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 3 * 60,
+}, {
+  src: 'img/allover.gif',
+  length: 3 * 60,
+}, {
+  src: 'img/mostlypresent.gif',
+  length: 12 * 60,
+}, {
+  src: 'img/present.gif',
+  length: 19 * 60,
+}, {
+  src: 'img/allover.gif',
+  length: 6 * 60 * 60,
+}]
 
 function convertDateToTimestamp(d) {
   // Make sure to offset by UTC - 4 (EDT)
@@ -215,8 +445,29 @@ window.ready(function() {
     }
   }
 
+  const checkAndChangeGif = () => {
+    let date = new Date();
+    let seconds = convertDateToTimestamp(date);
+    let i = 0
+    for (i = 0; i < pastPresentFuture.length; i++) {
+      if (seconds > pastPresentFuture[i].length) {
+        seconds -= pastPresentFuture[i].length;
+      } else {
+        break;
+      }
+    }
+
+    // Change video
+    if (i !== timelineIndex) {
+      console.log("CHANGE GIF", i, seconds);
+      timelineIndex = i;
+      timelineGif.src = pastPresentFuture[i].src;
+    }
+  }
+
   let mainVideo = document.getElementById('main-video');
   let mainAudio = document.getElementById('main-audio');
+  let timelineGif = document.getElementById('timeline-gif');
   let allowSoundBtn = document.getElementById('allow-sound');
   let allowSoundcloudBtn = document.getElementById('allow-sound-soundcloud');
   let titleChanger = document.getElementById('title-changer');
@@ -224,7 +475,10 @@ window.ready(function() {
   let wormholeText = document.querySelector('#wormhole .text');
   let mainVideoIndex = null;
   let mainAudioIndex = null;
+  let timelineIndex = 0;
   let wormholeIndex = 0;
+
+  checkAndChangeGif();
 
   mainVideo.width = "100%";
   mainVideo.height = "100%";
@@ -244,11 +498,13 @@ window.ready(function() {
   checkAndChangeAudio();
 
   allowSoundBtn.addEventListener('click', () => {
-    console.log(player);
-    if (allowSoundcloudBtn.classList.contains('active')) {
-      player.setVolume(0);
+    console.log(window.player, allowSoundBtn.classList.contains('active'));
+    if (allowSoundBtn.classList.contains('active')) {
+      console.log("SET VOLUME 0");
+      window.player.setVolume(0);
     } else {
-      player.setVolume(100);
+      console.log("SET VOLUME 100");
+      window.player.setVolume(100);
     }
     allowSoundBtn.classList.toggle('active');
   })
@@ -281,7 +537,7 @@ window.ready(function() {
       mainVideoIndex = null;
       window.inWormhole = false;
     } else {
-      let seconds = player.getCurrentTime();
+      let seconds = window.player.getCurrentTime();
       mainVideo.src = wormholes[wormholeIndex].url;
       wormholeText.textContent = 'go back'
       window.inWormhole = true;
@@ -292,6 +548,7 @@ window.ready(function() {
   setInterval(() => {
     checkAndChangeVideo();
     checkAndChangeAudio();
+    checkAndChangeGif();
 
     // Render wormholes
     let seconds = convertDateToTimestamp(new Date());
