@@ -138,8 +138,27 @@ ul + .category.active {
   cursor: pointer;
 }
 
+.menu-dropdown-trigger {
+  cursor: pointer;
+}
+.menu-dropdown-trigger .first,
+.menu-dropdown-trigger .second {
+  transition: opacity .3s;
+}
+.menu-dropdown-trigger .second {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+}
+.menu-dropdown-trigger:hover .first {
+  opacity: 0;
+}
+.menu-dropdown-trigger:hover .second {
+  opacity: 1;
+}
 .menu-dropdown-trigger img {
   width: 110px;
+  display: inline-block;
 }
 .menu-dropdown {
   visibility: hidden;
