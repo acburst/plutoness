@@ -46,6 +46,21 @@
     }
   }
 
+  // Menu dropdown
+  let dropdownTrigger = document.querySelector('.menu-dropdown-trigger');
+  if (dropdownTrigger) {
+    dropdownTrigger.addEventListener('click', () => {
+      let dropdown = document.querySelector('.menu-dropdown');
+      let rect = dropdown.getBoundingClientRect();
+      dropdown.classList.toggle("active");
+      if (dropdown.style.maxHeight) {
+        dropdown.style.maxHeight = null;
+      } else {
+        dropdown.style.maxHeight = (window.innerHeight - rect.top) + "px";
+      }
+    })
+  }
+
   // Paintings lightbox
   let paintings = document.querySelectorAll('.painting');
   if (paintings.length) {
