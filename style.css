@@ -18,14 +18,14 @@ ul {
   transition: max-height 0.2s ease-out;
   max-height: 0;
   overflow: hidden;
-  margin: 0 0 0 10px;
+  margin: 0 0 0 5px;
 }
 ul.open {
   max-height: initial;
   margin-top: 0;
 }
 ul > li:last-child {
-  padding-bottom: 20px;
+  padding-bottom: 0px;
 }
 
 .grid .grid-item {
@@ -48,6 +48,14 @@ a.active {
   color: #666;
 }
 
+.link-white a {
+  color: #fff;
+}
+.link-white a:hover,
+.link-white a {
+  color: #666;
+}
+
 .wrapper {
   position: relative;
 }
@@ -62,22 +70,51 @@ a.active {
 }
 .sidebar a:hover,
 .sidebar a.active {
-  color: #00dabc;
+  color: #40ff00;
 }
-.sidebar.white,
-.sidebar.white a {
+.sidebar-white {
+  width: 350px;
+  flex-shrink: 0;
+}
+.sidebar-white a {
+  display: block;
   color: #fff;
 }
-.sidebar.white a:hover,
-.sidebar.white a.active {
-  color: #ffbba0;
+.sidebar-white a:hover,
+.sidebar-white a.active {
+  color: #40ff00;
 }
 
 .category {
   cursor: pointer;
-  font-weight: bold;
+  font-weight: regular;
+}
+.category a {
+  display: block;
+  color: #000;
+}
+.category a:hover,
+.category a.active {
+  color: #40ff00;
 }
 ul + .category.active {
+  padding-top: 20px;
+}
+
+.category-white {
+  cursor: pointer;
+  font-weight: regular;
+}
+.category-white a {
+  display: block;
+  color: #fff;
+}
+.category-white a:hover,
+.category-white a.active {
+  color: #40ff00;
+}
+
+ul + .category-white.active {
   padding-top: 20px;
 }
 
@@ -179,14 +216,14 @@ ul + .category.active {
   transition: max-height 0.3s ease-out;
 }
 .menu-dropdown-wrapper {
-  background-color: #f0d4f0;
+  background-color: #ffffff00;
   padding: 20px;
 }
 
 .dropdown {
   opacity: 0;
   /*transform: translateX(100%);*/
-  padding: 0;
+  padding: top:10px;
   margin: 0;
   transition: transform .3s, opacity .3s;
 }
