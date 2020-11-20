@@ -40,12 +40,12 @@ img {
 }
 
 a {
-  color: #000;
+  color: #40ff00;
   text-decoration: none;
 }
 a:hover,
 a.active {
-  color: #666;
+  color: #40ff00;
 }
 
 .link-white a {
@@ -141,7 +141,7 @@ ul + .category-white.active {
   transform: translate(-50%, -50%);
 }
 .center-center a {
-  color:#00BDDA;
+  color:#40ff00;
 }
 
 .gifshadow {
@@ -184,7 +184,7 @@ ul + .category-white.active {
 
 .menu-dropdown-trigger {
   position: absolute;
-  top: 90px; left:70px;
+  top: 90px; left:50px;
   cursor: pointer;
 }
 .menu-dropdown-trigger .first,
