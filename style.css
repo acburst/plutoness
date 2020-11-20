@@ -18,7 +18,7 @@ ul {
   transition: max-height 0.2s ease-out;
   max-height: 0;
   overflow: hidden;
-  margin: 0 0 0 5px;
+  margin: 0 0 0 10px; /*indentation for sidebar subcategories*/
 }
 ul.open {
   max-height: initial;
@@ -51,17 +51,13 @@ a.active {
 .link-white a {
   color: #fff;
 }
-.link-white a:hover,
-.link-white a {
-  color: #666;
-}
 
 .wrapper {
   position: relative;
 }
 
 .sidebar {
-  width: 350px;
+  width: 300px;
   flex-shrink: 0;
 }
 .sidebar a {
@@ -72,16 +68,14 @@ a.active {
 .sidebar a.active {
   color: #40ff00;
 }
-.sidebar-white {
-  width: 350px;
-  flex-shrink: 0;
-}
-.sidebar-white a {
-  display: block;
+
+.sidebar.white a, 
+.sidebar.white .category {
   color: #fff;
 }
-.sidebar-white a:hover,
-.sidebar-white a.active {
+.sidebar.white a:hover,
+.sidebar.white .category:hover,
+.sidebar.white .active {
   color: #40ff00;
 }
 
@@ -93,24 +87,24 @@ a.active {
   display: block;
   color: #000;
 }
-.category a:hover,
-.category a.active {
+.category:hover,
+.category.active {
   color: #40ff00;
 }
 ul + .category.active {
   padding-top: 20px;
 }
 
-.category-white {
+.category.white {
   cursor: pointer;
   font-weight: regular;
 }
-.category-white a {
+.category.white a {
   display: block;
   color: #fff;
 }
-.category-white a:hover,
-.category-white a.active {
+.category.white:hover,
+.category.white a.active {
   color: #40ff00;
 }
 
@@ -150,8 +144,14 @@ ul + .category-white.active {
   color:#00BDDA;
 }
 
+.gifshadow {
+  box-shadow: 20px 20px 4px 5px rgba(0,0,0,.2);
+}
+
 .logo {
   margin-bottom: 20px;
+  box-shadow: 10px 10px 3px 3px rgba(0,0,0,.2);
+  width: 110px;
 }
 .logo img {
   display: block;
@@ -183,6 +183,8 @@ ul + .category-white.active {
 }
 
 .menu-dropdown-trigger {
+  position: absolute;
+  top: 90px; left:70px;
   cursor: pointer;
 }
 .menu-dropdown-trigger .first,
@@ -231,12 +233,12 @@ ul + .category-white.active {
 .logo-wrapper-index {
   position: relative;
   height: 100%;
-  padding-right: 210px;
+  padding-right: 0px;
 }
 .logo-wrapper-index:hover .dropdown {
   /*transform: translateX(0);*/
   opacity: 1;
-  padding-right: 210px;
+  padding-right: 0px;
 }
 .logo-wrapper {
   position: relative;
@@ -426,7 +428,7 @@ ul + .category-white.active {
 .text-box {
   box-sizing: border-box;
   z-index: 2;
-  line-height: 8px;
+  line-height: 10px;
   font-size: 8px;
   background-color: #fff;
 }
