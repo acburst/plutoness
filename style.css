@@ -296,6 +296,9 @@ ul + .category-white.active {
   width: 100%;
   min-height: 100%;
 }
+.content a {
+  color:#40ff00;
+}
 
 
 .paintings {
