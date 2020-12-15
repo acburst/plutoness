@@ -83,7 +83,7 @@ var consent = function () {
 		if (change_background == 8) {
 			var body = document.getElementsByTagName('body')[0];
 			body.style.backgroundImage = "url('fight.gif')";
-			string = "<br><br>So it's a no. They don't want to talk. Of course, you could always do like Alexander the Great did during his pilgrimage to the Delphic Oracle in 336 BC, seeking confirmation of his bloody ambition to conquer the whole world. Pythia refused to respond and bade him come back later. Unable to take no for an answer, the Greatest of Alexanders proceeded to grab the Oracle by her hair and drag her sorry form across the floor until she screamed, 'You are invincible!'";
+			string = "<br><br>So it's a no. They don't want to talk. Of course, you could always do like Alexander the Great did during his pilgrimage to the Delphic Oracle in 336 BC, seeking confirmation for his bloody ambition to conquer the world. Pythia refused to respond and bade him come back later. Unable to take no for an answer, the Greatest of Alexanders proceeded to grab the Oracle by her hair and drag her sorry form across the floor until she screamed, 'You are invincible!'";
 			var consent_question = document.getElementById('consent');
 			consent_question.style.display = 'none';
 		}
