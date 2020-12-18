@@ -52,7 +52,7 @@ textarea {
 }
 
 #consent {
-	color: lightgrey;
+	color: white;
 }
 
 #no {
@@ -65,12 +65,12 @@ textarea {
 }
 
 #consenttext {
-	padding: 15px;
-	color: lightgrey;
-	position: relative;
+	padding: 22px;
+	color: white;
 	text-align: center;
+	position: relative;
 	margin: 0 auto;
-	width: 888px;
+	width: 700px;
 }
 
 #archive {
@@ -95,6 +95,15 @@ textarea {
 	line-height: 1.5;
 	padding:20px;
 
+}
+
+.yellowtext {
+	color: yellow;
+}
+
+.yellowtext-i {
+	font-style: italic;
+	color:yellow;
 }
 
 .about {
