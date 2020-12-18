@@ -101,7 +101,7 @@ var yang_line = ["It is your money. It will remain with you just so long as you 
 				"lengthened alternately . . — The force with which a cord contracts is amazingly great.",
 				"discern, to a few yards, the height of the clouds, when they are below the summit, which is very often",
 				"the same evening, lightning, at Keswick; and at the later hour, one long and loud crack of thunder.",
-				"observations for a series of yeas; and when the whole sky is clouded, they are quite impracticable .",
+				"observations for a series of years; and when the whole sky is clouded, they are quite impracticable .",
 				"discover what particular months or season of the year, is most liable to thunder-storms and hail-showers",
 				"the higher these are, all other circumstances being the same , the sooner their summits are covered with snow",
 				"if they exceed a certain height (which varies with the latitude) snow continues upon them all the year",
