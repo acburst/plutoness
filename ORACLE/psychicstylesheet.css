@@ -42,12 +42,22 @@ h2 {
 }
 
 p {
-  color: red;
+  color: yellow;
 }
 
 textarea {
 	width:500px;
 	height:50px;
+
+}
+
+#yin {
+	float:left; 
+
+}
+
+#yang {
+	float:right; 
 
 }
 
@@ -112,12 +122,17 @@ textarea {
 	padding:30px;
 	margin: 0 auto;
 }
+
 .menu a {
   	color: hotpink;
 }
 
 .menu a:hover {
 	color: limegreen;
+}
+
+.menu a:visited {
+	color: hotpink;
 }
 
 .menuimage {
