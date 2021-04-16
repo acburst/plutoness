@@ -153,6 +153,8 @@ ul + .category-white.active {
 }
 .center-center a {
   color: #80ffd9;
+  font-size: 20px;
+  font-family: arial; 
 }
 
 .title {
