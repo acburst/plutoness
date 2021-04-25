@@ -192,7 +192,7 @@ var yang_line = ["It is your money. It will remain with you just so long as you 
 				"victory lap, Tuesday's photo finish illustrates that the political environment hasn't gotten much",
 				"paid off on Tuesday. It's hard to lose money betting on a widening metro vs. rural divide",
 				"showing significantly. This widening gap is the same pattern we've observed in virtually every",
-				"capitalize on the president's increasingly toxic standing in prosperous suburbs without losing too many",
+				"capitalize on the president's increasingly toxic standing in prosperous suburbs without losing too",
 				"other words, maps can't be challenged in federal courts for bestowing advantage to one party.",
 				"condemns complaints about districting to echo into a void. Numerous states are actively",
 				"reform...remains open. Although the decision might strike reform advocates as a monumental setback",

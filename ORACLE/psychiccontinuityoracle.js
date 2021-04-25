@@ -79,18 +79,20 @@ var consent = function () {
 			string = "<br><br>'Some fresh air and a walk will do you better than an Oracle ever could.'";
 			var consent_question = document.getElementById('consent');
 			consent_question.style.display = 'none';
+		
 		}
 		if (change_background == 8) {
 			var body = document.getElementsByTagName('body')[0];
-			body.style.backgroundImage = "url('fight.gif')";
-			string = "<br><br>So it's a no. They don't want to talk. Of course, you could always do like Alexander the Great did during his pilgrimage to the Delphic Oracle in 336 BC, seeking confirmation for his bloody ambition to conquer the world. Pythia refused to respond and bade him come back later. Unable to take no for an answer, the Greatest of Alexanders proceeded to grab the Oracle by her hair and drag her sorry form across the floor until she screamed, 'You are invincible!'";
+			body.style.backgroundImage = "url('nightrose.gif')";
+			string = "<br><br>'Some fresh air and a walk will do you better than an Oracle ever could.'";
 			var consent_question = document.getElementById('consent');
 			consent_question.style.display = 'none';
 		}
+
 		if (change_background == 9) {
 			var body = document.getElementsByTagName('body')[0];
-			body.style.backgroundImage = "url('nightrose.gif')";
-			string = "<br><br>'Some fresh air and a walk will do you better than an Oracle ever could.'";
+			body.style.backgroundImage = "url('busy.gif')";
+			string = "<br><br>'I'm busy.'";
 			var consent_question = document.getElementById('consent');
 			consent_question.style.display = 'none';
 		}
