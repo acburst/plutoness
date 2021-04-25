@@ -57,7 +57,7 @@ a.active {
 }
 
 .sidebar {
-  width: 300px;
+  width: 200px;
   flex-shrink: 0;
 }
 .sidebar a {
@@ -344,47 +344,68 @@ ul + .category-white.active {
 .painting.p-1 {
   position: absolute;
   top: 27.07%;
-  left: 9%;
+  left: 0%;
   width: 24%;
 }
 .painting.p-2 {
   position: absolute;
-  top: 16.57%;
-  left: 33.75%;
+  top: 0.57%;
+  left: 25.75%;
   width: auto;
   height: 41.74%;
 }
 .painting.p-3 {
   position: absolute;
-  top: 0;
-  left: 57.83%;
+  top: 10%;
+  left: 80.83%;
   width: auto;
   height: 33.6%;
 }
 .painting.p-4 {
   position: absolute;
-  top: 34.5%;
-  left: 56.83%;
+  top: 0.5%;
+  left: 0.83%;
   width: 23.58%;
 }
 .painting.p-5 {
   position: absolute;
-  top: 53.49%;
-  left: 10.92%;
+  top: 56.49%;
+  left: 1.92%;
   width: auto;
   height: 36.91%;
 }
 .painting.p-6 {
   position: absolute;
-  top: 61.86%;
-  left: 33.75%;
+  top: 49.86%;
+  left: 82.75%;
   width: 19.17%;
 }
 .painting.p-7 {
   position: absolute;
-  top: 60.8%;
-  left: 53.92%;
+  top: 74.8%;
+  left: 54.92%;
+  width: 26.17%;
+}
+
+.painting.p-8 {
+  position: absolute;
+  top: 44.8%;
+  left: 50.92%;
   width: 29.17%;
+}
+
+.painting.p-9 {
+  position: absolute;
+  top: 0.8%;
+  left:49.92%;
+  width: 29.17%;
+}
+
+.painting.p-10 {
+  position: absolute;
+  top: 45%;
+  left: 25.92%;
+  width: 24.17%;
 }
 .painting.active {
   position: fixed;
