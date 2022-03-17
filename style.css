@@ -6,7 +6,6 @@ html, body {
 body {
   display: flex;
   margin: 0;
-  padding: 50px;
   font-family: 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   font-size: 14px;
 }
@@ -48,6 +47,19 @@ a.active {
   color: #33ffad;
 }
 
+::placeholder {
+  color: #fff;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: #fff;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: #fff;
+}
+
 .link-white a {
   color: #fff;
 }
@@ -69,7 +81,7 @@ a.active {
   color: #33ffad;
 }
 
-.sidebar.white a, 
+.sidebar.white a,
 .sidebar.white .category {
   color: #fff;
 }
@@ -154,7 +166,7 @@ ul + .category-white.active {
 .center-center a {
   color: #80ffd9;
   font-size: 20px;
-  font-family: arial; 
+  font-family: arial;
 }
 
 .title {
@@ -166,7 +178,7 @@ ul + .category-white.active {
 }
 
 .column a {
-  padding: 1px; 
+  padding: 1px;
 }
 
 .column a:hover {
@@ -854,6 +866,97 @@ ul + .category-white.active {
   background-size: 20%;
 }
 
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: #fff;
+  text-align: center;
+  flex: 1;
+}
+.homepage h1 {
+  flex: 0;
+  margin-top: 50px;
+}
+.footer-links {
+  flex: 0;
+  padding-bottom: 50px;
+}
+.footer-links a {
+  display: block;
+  padding-bottom: 8px;
+  text-decoration: underline;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  transition: color .2s;
+}
+.footer-links a:hover {
+  color: red;
+}
+.mailing-list {
+  flex: 1;
+  flex-direction: column;
+  /*position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);*/
+}
+.mailing-list input {
+  color: #fff;
+  font-size: 24px;
+  background-color: transparent;
+  border: 0;
+}
+.mailing-list input[type="email"] {
+  width: 400px;
+  text-align: center;
+  height: 48px;
+  border-bottom: 4px solid #fff;
+}
+.mailing-list input[type="submit"] {
+  cursor: pointer;
+  margin-top: 40px;
+  transition: color .2s;
+}
+.mailing-list input[type="submit"]:hover {
+  color: red;
+}
+/* Background Video */
+.desktop-video-bg-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+.desktop-video-bg-container .desktop-video-bg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.desktop-picture-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: red;
+  z-index: -1;
+}
+.desktop-picture-container img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.contact {
+  margin: 8px 0;
+}
+
 @media screen and (max-width: 1330px) {
   .album-tape,
   .album-insert,
@@ -864,6 +967,10 @@ ul + .category-white.active {
 }
 
 @media screen and (max-width: 400px) {
+  .mailing-list input[type="email"] {
+    width: 100%;
+  }
+
   .coming-soon {
     background-size: 40%;
   }
