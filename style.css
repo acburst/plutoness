@@ -920,7 +920,8 @@ ul + .category-white.active {
 }
 .mailing-list input[type="submit"] {
   cursor: pointer;
-  margin-top: 40px;
+  margin-top: 20px;
+  border: 2px solid white;
   transition: color .2s;
 }
 .mailing-list input[type="submit"]:hover {
