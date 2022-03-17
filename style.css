@@ -915,6 +915,9 @@ ul + .category-white.active {
   height: 48px;
   border-bottom: 4px solid #fff;
 }
+.mailing-list input[type="email"]:focus {
+  outline: 0;
+}
 .mailing-list input[type="submit"] {
   cursor: pointer;
   margin-top: 40px;
