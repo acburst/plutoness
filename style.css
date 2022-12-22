@@ -38,6 +38,11 @@ img {
   display: block;
 }
 
+.inline-img {
+  width: 100%;
+  margin: 30px 0;
+}
+
 a {
   color: #40ff00;
   text-decoration: none;
@@ -891,16 +896,15 @@ ul + .category-white.active {
   padding-bottom: 50px;
   color: #FF5F1F;
 }
-.footer-links a {
+.footer-links a,
+.footer-links h2 {
   display: block;
   padding-bottom: 8px;
-  text-decoration: none;
-  color: #red;
+  font-style: italic;
   font-size: 26px;
   font-weight: bold;
   transition: color .2s;
   text-shadow: 2px 2px 4px #000000;
-
 }
 .footer-links a:hover {
   color: red;
@@ -969,6 +973,14 @@ ul + .category-white.active {
 }
 .contact {
   margin: 8px 0;
+}
+
+
+.proposal-text {
+  flex: 1;
+  flex-direction: column;
+  font-size: 20px;
+  line-height: 30px;
 }
 
 @media screen and (max-width: 1330px) {
