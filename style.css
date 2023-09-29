@@ -346,6 +346,9 @@ ul + .category-white.active {
   color:#ff1749;
 }
 
+.wrapper {
+  display: flex;
+}
 
 .paintings {
   position: relative;
@@ -877,37 +880,37 @@ ul + .category-white.active {
   flex-direction: column;
   height: 100vh;
   color: #fff;
-  text-align: center;
+  text-align: right;
+  padding: 0 20px;
   flex: 1;
   color: white;
-  text-shadow: 2px 2px 4px #000000;
 }
 
 .homepage a {
-  color: #40ffcc;
+  color: #FF2400;
 }
 
 .homepage h1 {
   flex: 0;
-  margin-top: 50px;
+  margin: 20px 0;
+  float: right;
+}
+.homepage h1 img {
+  display: inline-block;
 }
 .footer-links {
   flex: 0;
-  padding-bottom: 50px;
   color: #FF5F1F;
 }
 .footer-links a,
 .footer-links h2 {
   display: block;
-  padding-bottom: 8px;
-  font-style: italic;
-  font-size: 26px;
-  font-weight: bold;
+  padding-bottom: 12px;
+  font-size: 20px;
   transition: color .2s;
-  text-shadow: 2px 2px 4px #000000;
 }
 .footer-links a:hover {
-  color: red;
+  color: #40ffcc;
 }
 .mailing-list {
   flex: 1;
@@ -919,12 +922,12 @@ ul + .category-white.active {
 }
 .mailing-list input {
   color: #fff;
-  font-size: 24px;
+  font-size: 18px;
   background-color: transparent;
   border: 0;
 }
 .mailing-list input[type="email"] {
-  width: 400px;
+  width: 250px;
   text-align: center;
   height: 48px;
   border-bottom: 4px solid #fff;
@@ -962,7 +965,7 @@ ul + .category-white.active {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: red;
+  background-color: black;
   z-index: -1;
 }
 .desktop-picture-container img {
