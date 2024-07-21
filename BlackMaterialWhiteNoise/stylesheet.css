@@ -1,0 +1,104 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@import url("stylesheet.css");
+
+@font-face {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	background-color: black;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+  	background-position: cover;
+  	text-align: center;
+  	object-position: center;
+}
+
+body.archive {
+	background-image: none;
+	background-color: powderblue;
+}
+
+h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+  	color: blue;
+  	text-align: center;
+  	text-shadow: 4px 4px 4px black;
+
+}
+
+h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+  	color: yellow;
+  	font-style: italic;
+  	text-align: center;
+  	text-shadow: 4px 4px 4px black;
+
+}
+
+p {
+  color: red;
+}
+
+textarea {
+	width:500px;
+	height:50px;
+
+}
+
+iframe {
+  margin: 0 auto;
+  align-content: left;
+}
+
+
+.title {
+	text-align: center;
+	font-size: 100px;
+  font-style: bold;
+  padding: 60px;
+  position: absolute;
+  margin: 0 auto;
+  color: white;
+}
+
+.instruct {
+  font-size: 60px;
+  font-style: bold;
+  color: white;
+  padding-left: 720px;
+  padding-top: 100px;
+  position: absolute;
+  margin: 0 auto;
+
+}
+
+.player {
+  padding-top: 200px;
+  padding-left: 500px;
+}
+
+.bib a{
+  font-size: 40px;
+  font-style: bold;
+  padding: 20px;
+  color: white;
+
+}
+
+.bib a:hover {
+  color: cyan;
+}
+
+
+.credits {
+  width: 450px;
+  font-size: 20px;
+  padding-left: 100px;
+  color: white;
+  padding-top: 20px;
+}
