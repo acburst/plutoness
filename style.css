@@ -1,12 +1,13 @@
 html, body {
   min-height: 100%;
   box-sizing: border-box;
+  background-color: #000;
 }
 
 body {
   display: flex;
   margin: 0;
-  font-family: 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+  font-family: "Times New Roman", "EB Garamond", serif;
   font-size: 14px;
 }
 
@@ -41,6 +42,16 @@ img {
 .inline-img {
   width: 100%;
   margin: 30px 0;
+}
+
+p {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+p a {
+  color: #fff !important;
+  text-decoration: underline;
 }
 
 a {
@@ -171,7 +182,6 @@ ul + .category-white.active {
 .center-center a {
   color: #80ffd9;
   font-size: 20px;
-  font-family: arial;
 }
 
 .title {
@@ -878,16 +888,19 @@ ul + .category-white.active {
 .homepage {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  margin-top: 40px;
+  margin-left: 14%;
+  margin-right: 14%;
+  width: 72%;
   color: #fff;
-  text-align: right;
+  text-align: left;
   padding: 0 20px;
   flex: 1;
   color: white;
 }
 
 .homepage a {
-  color: #FF2400;
+  color: #fff;
 }
 
 .homepage h1 {
@@ -900,17 +913,32 @@ ul + .category-white.active {
 }
 .footer-links {
   flex: 0;
-  color: #FF5F1F;
+  color: #fff;
+  margin-bottom: 40px;
 }
 .footer-links a,
 .footer-links h2 {
-  display: block;
+  display: inline-block;
+  margin-right: 30px;
   padding-bottom: 12px;
-  font-size: 20px;
+  font-size: 24px;
   transition: color .2s;
 }
 .footer-links a:hover {
   color: #40ffcc;
+  text-decoration: underline;
+}
+.footer-links a.active {
+  text-decoration: underline;
+}
+.footer-links .home {
+  float: right;
+  margin: 0;
+  text-decoration: underline;
+}
+.footer-links a.home:hover {
+  color: #fff;
+  text-decoration: none;
 }
 .mailing-list {
   flex: 1;
@@ -925,12 +953,13 @@ ul + .category-white.active {
   font-size: 18px;
   background-color: transparent;
   border: 0;
+  font-family: "Times New Roman", "EB Garamond", serif;
 }
 .mailing-list input[type="email"] {
   width: 200px;
   text-align: left;
-  height: 48px;
-  border-bottom: 4px solid #fff;
+  height: 36px;
+  border-bottom: 1px solid #fff;
 }
 .mailing-list input[type="email"]:focus {
   outline: 0;
@@ -938,11 +967,12 @@ ul + .category-white.active {
 .mailing-list input[type="submit"] {
   cursor: pointer;
   margin-top: 20px;
-  border: 2px solid white;
+  border: 1px solid white;
+  padding: 10px;
   transition: color .2s;
 }
 .mailing-list input[type="submit"]:hover {
-  color: red;
+  color: #40ffcc;
 }
 /* Background Video */
 .desktop-video-bg-container {
@@ -1006,5 +1036,11 @@ ul + .category-white.active {
 
   .wrapper {
     flex-direction: column-reverse;
+  }
+
+  .homepage {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
   }
 }
