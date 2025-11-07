@@ -52,12 +52,12 @@ textarea {
 }
 
 #yin {
-	float:left; 
+	float:left;
 
 }
 
 #yang {
-	float:right; 
+	float:right;
 
 }
 
@@ -145,7 +145,7 @@ textarea {
 	display: none;
 }
 
-.left { 
+.left {
 	float:left;
 
 }
@@ -189,3 +189,46 @@ textarea {
 	display:block;
 }
 
+
+@media screen and (max-width: 700px) {
+	body {
+		font-size: 24px;
+		padding-bottom: 200px;
+	}
+
+	#consenttext {
+		width: auto;
+	}
+
+	.menuimage {
+		padding: 0;
+		margin-bottom: 10px;
+	}
+	.menuimage img {
+		width: 140px;
+	}
+
+	.fixed {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		background-color: black;
+		width: 100%;
+	}
+
+	.fixed button {
+		height: 30px;
+		font-size: 18px;
+		margin-bottom: 50px;
+	}
+	.fixed p {
+		margin: 10px 0;
+	}
+
+	.menu {
+		line-height: 20px;
+	}
+	.menu a {
+		font-size: 15px;
+	}
+}
