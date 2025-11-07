@@ -196,7 +196,10 @@ textarea {
 		padding-bottom: 200px;
 	}
 
-	#consenttext {
+	#consenttext,
+	#no,
+	.spiel,
+	textarea {
 		width: auto;
 	}
 
