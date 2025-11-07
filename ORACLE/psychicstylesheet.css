@@ -194,6 +194,7 @@ textarea {
 	body {
 		font-size: 24px;
 		padding-bottom: 200px;
+		background-size: cover;
 	}
 
 	#consenttext,
@@ -201,6 +202,10 @@ textarea {
 	.spiel,
 	textarea {
 		width: auto;
+	}
+	textarea {
+		width: 80%;
+		height: 100px;
 	}
 
 	.menuimage {
@@ -219,7 +224,7 @@ textarea {
 		width: 100%;
 	}
 
-	#consent button {
+	button {
 		height: 30px;
 		font-size: 18px;
 		margin-top: -10px;
