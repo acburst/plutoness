@@ -46,6 +46,20 @@
     }
   }
 
+
+  let hamburgerMenu = document.getElementById('hamburger-menu');
+  // Hamburger dropdown
+  hamburgerMenu.addEventListener('click', (e) => {
+    let footerLinks = document.querySelector('.footer-links');
+    footerLinks.classList.toggle('active');
+    let rect = footerLinks.getBoundingClientRect();
+    if (footerLinks.style.maxHeight) {
+      footerLinks.style.maxHeight = null;
+    } else {
+      footerLinks.style.maxHeight = (window.innerHeight - rect.top) + "px";
+    }
+  });
+
   // Menu dropdown
   let dropdownTrigger = document.querySelector('.menu-dropdown-trigger');
   if (dropdownTrigger) {

@@ -7,7 +7,8 @@ html, body {
 body {
   display: flex;
   margin: 0;
-  font-family: "Times New Roman", "EB Garamond", serif;
+  /* font-family: "Times New Roman", "EB Garamond", serif; */
+  font-family: "Work Sans", sans-serif;
   font-size: 14px;
 }
 
@@ -46,7 +47,7 @@ img {
 
 p {
   margin-top: 0;
-  font-size: 18px;
+  font-size: 24px;
 }
 
 p a {
@@ -185,9 +186,6 @@ ul + .category-white.active {
 .center-center a {
   color: #80ffd9;
   font-size: 20px;
-}
-
-.title {
 }
 
 .column {
@@ -920,7 +918,8 @@ ul + .category-white.active {
   margin-bottom: 40px;
 }
 .footer-links a,
-.footer-links h2 {
+.footer-links h2,
+.header-link {
   display: inline-block;
   margin-right: 30px;
   padding-bottom: 12px;
@@ -1019,6 +1018,37 @@ ul + .category-white.active {
   line-height: 30px;
 }
 
+
+/* 11/7/2025 */
+.desktop-video-bg-container .desktop-video-bg {
+  display: none;
+}
+.centered {
+  text-align: center;
+}
+.show-on-mobile {
+  display: none;
+}
+.title {
+}
+
+.row {
+  display: flex;
+  margin-bottom: 60px;
+}
+
+.column-left {
+  width: 45%;
+  margin-right: 20px;
+  display: inline-block;
+}
+
+.column-right {
+  width: calc(50% - 10px);
+  margin-left: 5%;
+  display: inline-block;
+}
+
 @media screen and (max-width: 1330px) {
   .album-tape,
   .album-insert,
@@ -1045,5 +1075,77 @@ ul + .category-white.active {
     margin-left: 5%;
     margin-right: 5%;
     width: 90%;
+  }
+
+  /* 11/7/2025 */
+  .homepage-green {
+    background-color: #3fff4c;
+  }
+  #hamburger-menu {
+    cursor: pointer;
+    margin-bottom: 60px;
+  }
+  .desktop-video-bg-container .desktop-video-bg {
+    display: block;
+    object-fit: contain;
+  }
+  .home-background-image {
+    background-image: url(img/shy-in-jakarta-1.jpg);
+    min-height: 100vh;
+    background-size: cover;
+    background-position: 68% 50%;
+  }
+  .show-on-mobile {
+    display: block;
+  }
+  .hidden-on-mobile {
+    display: none;
+  }
+  .footer-links .home {
+    display: none;
+  }
+  .footer-links {
+    background-color: #000;
+    overflow: hidden;
+    visibility: hidden;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    transition: max-height 0.8s, visibility 0s 0.8s;
+  }
+
+  .footer-links.active {
+    height: auto;
+    overflow: visible;
+    margin: 20px 0;
+    padding: 20px;
+    visibility: visible;
+    transition: max-height 0.5s ease-out;
+  }
+
+  .home.header-link {
+    text-align: center;
+    margin-right: 0;;
+  }
+
+  .title {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .row {
+    flex-direction: column-reverse;
+  }
+
+  .column-left,
+  .column-right {
+    width: 100%;
+    margin: 0;
+    display: block;
+  }
+  .column-right {
+    margin-bottom: 30px;
   }
 }
