@@ -47,7 +47,7 @@ img {
 
 p {
   margin-top: 0;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 p a {
@@ -864,7 +864,7 @@ ul + .category-white.active {
   margin-bottom: 100px;
 }
 .title {
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 .music-video iframe {
@@ -923,7 +923,7 @@ ul + .category-white.active {
   display: inline-block;
   margin-right: 30px;
   padding-bottom: 12px;
-  font-size: 24px;
+  font-size: 20px;
   transition: color .2s;
 }
 .footer-links a:hover {
