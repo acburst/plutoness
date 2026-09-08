@@ -589,6 +589,21 @@ ul {
   margin-bottom: 8px;
 }
 
+.about-content {
+  width: 900px;
+  font-size: 22px;
+}
+
+.live-content {
+  width: 1500px;
+  font-size: 22px;
+}
+
+.link-list-content {
+  width: max-content;
+  white-space: nowrap;
+}
+
 /* Mailing List */
 .mailing-list-container {
   padding: 0 40px 40px;
@@ -652,44 +667,39 @@ ul {
 
   .content {
     flex-direction: column;
-    padding-top: 100px;
+    padding-top: 0;
     height: auto;
   }
   .content .mobile-menu-btn {
-    display: flex;
-    float: right;
-    margin-right: 20px;
-    height: 50px;
-    align-items: center;
+    display: none;
   }
   .content .nav-wrapper {
-    position: absolute;
-    top: 90px;
-    right: 0;
-    left: 0;
-    max-height: 0;
+    position: static;
+    width: 100%;
+    max-width: none;
+    max-height: initial;
     margin: 0;
-    padding: 0 20px;
+    padding: 0;
     color: #444;
-  }
-  .content .nav-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #fff;
-    z-index: -1;
-  }
-  .content .nav-wrapper li > a {
-    color: #444;
-  }
-  .content .nav-wrapper > :last-child {
-    margin-bottom: 10px;
   }
   .content .right-container {
     min-height: calc(100vh - 90px)
+  }
+
+  .about-content {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .live-content {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .link-list-content {
+    width: 100%;
+    box-sizing: border-box;
+    white-space: normal;
   }
 
   .tea-container {
@@ -708,36 +718,27 @@ ul {
 
   .sidebar {
     display: block;
-    /*background-color: #E5CA01;*/
-    padding: 20px 0;
-    height: 50px;
+    padding: 20px;
+    height: auto;
     max-width: initial;
-    width: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
+    width: 100%;
+    box-sizing: border-box;
+    position: static;
   }
   .sidebar .logo {
-    position: absolute;
+    position: static;
     color: #fff;
-    margin-left: 20px;
+    margin-left: 0;
     width: auto;
     max-width: 75%;
     align-items: center;
-    top: 50%;
-    transform: translateY(-50%);
+    transform: none;
   }
   .sidebar .logo img {
     width: auto;
     display: inline-block;
     padding-bottom: 0;
   }
-  .sidebar a {
-    color: #000;
-  }
-
   .logo {
     max-width: 100%;
   }
