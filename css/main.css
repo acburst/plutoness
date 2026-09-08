@@ -683,7 +683,7 @@ ul {
     color: #444;
   }
   .content .right-container {
-    min-height: calc(100vh - 90px)
+    margin-bottom: 20px;
   }
 
   .about-content {
