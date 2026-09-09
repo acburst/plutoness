@@ -1,0 +1,111 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>frances chang</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+ <style type="text/css">
+  a {
+    color: #000;
+  }
+  .right-container,
+  .right-container > .logo,
+  .right-container > .logo > img {
+    width: 400px;
+    height: 400px;
+  }
+    @media only screen and (max-width: 600px) {
+      .right-container,
+      .right-container > .logo,
+      .right-container > .logo > img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+
+  <!-- Background -->
+
+
+  <div class="content" style="justify-content: space-between;">
+    <div class="sidebar">
+      <div>
+  <a href="index.html" style="color: #000;">frances chang</a>
+  <hr>
+</div>
+      <a class="mobile-menu-btn" href="#!">
+        <svg height="32" width="32" viewBox="0 0 64 64">
+          <g transform="translate(330.000000, 232.000000)">
+            <polygon class="st0" points="-321.8,-219 -274.3,-219 -274.3,-212.7 -321.8,-212.7    " fill="#fff"/>
+            <polygon class="st0" points="-321.8,-203.2 -274.3,-203.2 -274.3,-196.8 -321.8,-196.8    " fill="#fff"/>
+            <polygon class="st0" points="-321.8,-187.3 -274.3,-187.3 -274.3,-181 -321.8,-181    " fill="#fff"/>
+          </g>
+        </svg>
+      </a>
+      <ul class="nav-wrapper">
+        <li><a href="music.html">music</a></li>
+        <li><a href="press.html">press</a></li>
+        <li><a href="live.html">live</a></li>
+        <li><a href="contactme.html">contact</a></li>
+        <li><a href="https://plutoness.com/ORACLE/index.html">oracle</a></li>
+      </ul>
+
+<div class="about-content" style="margin-top: 20px; margin-left: 0px; color: #000">
+<div style="color:#000;">
+<div style="color:#e0f542">email me: surrenderpsyche [at] gmail [dot] com
+<br>
+booking: zsilva [at] anniversarygroup [dot] com</div><br>
+<!--  
+booking: zsilva [at] anniversarygroup [dot] com</div><br>
+Frances Chang is a Brooklyn-based experimental songwriter and producer. Largely self-taught as a musician, Chang’s output has long been marked by a sense of unconventionality and surprise.
+Born to immigrant parents in Chicago and raised in New York, Chang’s musical practice grew largely autonomously through bedroom recordings. Her formative live experiences were shaped by DIY punk. In 2022 she self-released <i>support your local nihilist</i>, her first solo album under her name, marking a return to a more bedroom sound and process. She took her home recordings to Hunter Davidsohn who co-produced the album. During the production of 2024’s <i>Psychedelic Anxiety</i>, she began collaborating with engineer and bass player Andréa Schiavelli (Eyes of Love), who would go on to co-produce <i>btbc</i>, and Liza Winter (birthing hips) on drums. The three formed a live trio and toured the album before disbanding at the end of 2024.
+<br><br>
+In order to write <i>been thinking bout confession</i>, her third solo album and first released via RVNG Intl., Frances traded her usual guitar for a piano. The album finds stark, up-close vocals guiding idiosyncratic instrumentation that vacillates between the digital and the analog.  In the lead-up to the album's release, Chang performed solo as sole support for Cate Le Bon’s 2026 US tour and played her songs as a duo with Schiavelli on a string of dates in support of Bill Callahan. She misses the high desert already.
+-->
+<br><br>
+</div>
+</div>
+</div>
+
+    <div class="right-container">
+      <a class="logo" href="index.html">
+        <img src="img/ascii-art-black.png" alt="">
+      </a>
+
+      <!-- Begin Mailchimp Signup Form -->
+
+      <!--End mc_embed_signup-->
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="js/vendor/modernizr-3.8.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
